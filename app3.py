@@ -274,11 +274,11 @@ def app3():
 
 def app4():
     st.title("🌽 Planteo productivo")
-    region = st.selectbox('Región: ', ["N Bs As / S Sta Fe","S Entre Ríos","SE Bs As","S Cordoba"])
+    region = st.selectbox('Región: ', ["N Bs As/S Sta Fe","Oeste Bs As", "SO Bs As", "SE Bs As", "S Cordoba", "S Entre Ríos","Salta", "S del Estero"])
     left, right = st.columns(2)
     left.write("Completar:")
     form = left.form("template_form") 
-    tipo = form.selectbox('Tipo de cultivo: ', ["Soja 1ra", "Soja 2da", "Trigo","Maíz","Girasol", "Sorgo", "Cebada"])
+    tipo = form.selectbox('Tipo de cultivo: ', ["Soja 1ra", "Soja 2da", "Trigo","Maíz","Girasol", "Sorgo", "Cebada Forrajera", "Cebada Cervecera"])
     propio = form.selectbox('Tipo de explotación: ', ["Propia","Arrendado","Aparcería"])
     cantidad = form.number_input("Superficie (has): ", step=1)
     rinde = form.number_input("Rendimiento informado (en tn)")
@@ -380,6 +380,13 @@ def app4():
         [sojagc1, soja2gc3, trigogc4, maizgc1, giragc3, sorgogc2, cebadagc2, cebadagc1]      # S del Estero
     ]
     
+    precio = precios[regiones.index(region)][cultivos.index(tipo)]
+    costo = costos[regiones.index(region)][cultivos.index(tipo)]
+    gasto = gastos[regiones.index(region)][cultivos.index(tipo)]
+    
+    st.write(precio)
+    st.write(costo)
+    st.write(gasto)
     #precio = psoja1*dol*rinde*cantidad
     #costos directos
     #costodirecto = costo*dol*cantidad
