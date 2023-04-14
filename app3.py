@@ -341,7 +341,7 @@ def app4():
     else:
         print("No se pudo descargar el archivo")
     
-    st.write(result)
+    st.write(sojaprice1)
     #precio = psoja1*dol*rinde*cantidad
     #costos directos
     #costodirecto = costo*dol*cantidad
