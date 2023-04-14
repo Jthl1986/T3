@@ -374,14 +374,19 @@ def app4():
         valors = valor1()
         # Formatear valor con el formato "${:,}"
         valors_formatted = "${:,}".format(round(valors))
-        lista = [region, propio, tipo, cantidad, valors_formatted]
+        def costo1():
+            return costo*dol*cantidad
+        cost = costo1()
+        # Formatear valor con el formato "${:,}"
+        cost_formatted = "${:,}".format(round(cost))
+        lista = [region, propio, tipo, cantidad, valors_formatted, cost_formatted]
         return lista
     datos = []
     if "dfp" not in st.session_state:
-        st.session_state.dfp = pd.DataFrame(columns=('Región', 'Tipo de explotación', 'Cultivo', 'Superficie (has)', 'Ingreso'))
+        st.session_state.dfp = pd.DataFrame(columns=('Región', 'Tipo de explotación', 'Cultivo', 'Superficie (has)', 'Ingreso', 'Costos directos'))
     if submit:
         datos.append(lista())
-        dfo = pd.DataFrame(datos, columns=('Región', 'Tipo de explotación','Cultivo', 'Superficie (has)', 'Ingreso'))
+        dfo = pd.DataFrame(datos, columns=('Región', 'Tipo de explotación','Cultivo', 'Superficie (has)', 'Ingreso', 'Costos directos'))
         st.session_state.dfp = pd.concat([st.session_state.dfp, dfo])
     st.table(st.session_state.dfp)
     css()
