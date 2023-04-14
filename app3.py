@@ -373,7 +373,7 @@ def app4():
             return precio*dol*rinde*cantidad
         valors = valor1()
         # Formatear valor con el formato "${:,}"
-        valors_formatted = "${:,}".format(valors)
+        valors_formatted = "${:,}".format(round(valors))
         lista = [region, propio, cantidad, valors_formatted]
         return lista
     datos = []
