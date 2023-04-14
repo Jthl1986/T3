@@ -382,7 +382,7 @@ def app4():
         cost_formatted = "${:,}".format(round(cost))
         
         def gc1():
-            return gasto*dol*cantidad
+            return gasto*valors
         gc = gc1()
         # Formatear valor con el formato "${:,}"
         gc_formatted = "${:,}".format(round(gc))
