@@ -387,7 +387,7 @@ def app4():
         # Formatear valor con el formato "${:,}"
         gc_formatted = "${:,}".format(round(gc))
         
-        lista = [region, propio, tipo, cantidad, valors_formatted, cost_formatted, gc]
+        lista = [region, propio, tipo, cantidad, valors_formatted, cost_formatted, gc_formatted]
         return lista
     datos = []
     if "dfp" not in st.session_state:
