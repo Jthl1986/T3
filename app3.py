@@ -396,7 +396,7 @@ def app4():
         datos.append(lista())
         dfo = pd.DataFrame(datos, columns=('Región', 'Tipo de explotación','Cultivo', 'Superficie (has)', 'Ingreso', 'Costos directos','Gastos comercialización'))
         st.session_state.dfp = pd.concat([st.session_state.dfp, dfo])
-    st.table(st.session_state.dfp)
+    st.table(st.session_state.dfp).set_properties(**{'text-align': 'right'})
     css()
     
     
