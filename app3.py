@@ -411,6 +411,10 @@ def app5():
     dfp = getattr(st.session_state, 'dfp', None)
    
     # Mostrar las tablas si los dataframes existen
+    if dfp is not None:
+        st.subheader("🌽 Planteo productivo")
+        st.table(dfp.style.format({"Superficie (has)":"{:.0f}", "Valor":"${:,}"})) 
+        
     if dfs is not None:
         right.subheader("🌾 Existencias de granos")
         right.table(dfs.style.format({"Cantidad (tn)":"{:.0f}", "Valuación":"${:,}"}))
@@ -420,12 +424,8 @@ def app5():
         right.table(dfx.style.format({"Superficie(ha)":"{:.0f}", "Precio":"${:,}", "Ingreso estimado":"${:,}"}))
    
     if dfa is not None:
-        right.subheader("🐮 Existencias de hacienda")
-        right.table(dfa.style.format({"Cantidad":"{:.0f}", "Peso":"{:.0f}", "Valuación":"${:,}"}))
-        
-    if dfp is not None:
-        left.subheader("🌽 Planteo productivo")
-        left.table(dfp.style.format({"Superficie (has)":"{:.0f}", "Valor":"${:,}"}))        
+        left.subheader("🐮 Existencias de hacienda")
+        left.table(dfa.style.format({"Cantidad":"{:.0f}", "Peso":"{:.0f}", "Valuación":"${:,}"}))
         
         
     #topLeftMargin * 20 es donde manejas el ancho
