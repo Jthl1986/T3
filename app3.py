@@ -370,7 +370,7 @@ def app4():
     # Imprimir la lista de datos        
     def lista():
         def valor1():
-            return cantidad + 1
+            return precio*dol*rinde*cantidad
         valors = valor1()
         lista = [region, propio, cantidad, valors]
         return lista
@@ -383,6 +383,7 @@ def app4():
         st.session_state.dfp = pd.concat([st.session_state.dfp, dfo])
     st.table(st.session_state.dfp)
     css()
+    
     
     #precio = psoja1*dol*rinde*cantidad
     #costos directos
