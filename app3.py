@@ -406,7 +406,7 @@ def app4():
     css()
     
     mbtotal = st.session_state.dfp['Margen bruto'].sum()
-    right.metric('El margen bruto total es: ', '${:,}'.format(mbtotal))
+    right.metric('El margen bruto total es: ', '${:}'.format(mbtotal))
 
 def app5():
     st.header("Cuadro resumen")
