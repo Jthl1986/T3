@@ -283,23 +283,6 @@ def app4():
     cantidad = form.number_input("Superficie (has): ", step=1)
     rinde = form.number_input("Rendimiento informado (en tn)")
     submit = form.form_submit_button("Ingresar")
-
-    # Imprimir la lista de datos        
-    def lista():
-        def valor1():
-            return cantidad + 1
-        valors = valor1()
-        lista = [region, propio, cantidad, valors]
-        return lista
-    datos = []
-    if "dfp" not in st.session_state:
-        st.session_state.dfp = pd.DataFrame(columns=('Región', 'Tipo de explotación', 'Superficie (has)', 'Valor'))
-    if submit:
-        datos.append(lista())
-        dfo = pd.DataFrame(datos, columns=('Región', 'Tipo de explotación', 'Superficie (has)', 'Valor'))
-        st.session_state.dfp = pd.concat([st.session_state.dfp, dfo])
-    st.table(st.session_state.dfp)
-    css()
         
     # API tipo de cambio
     url = "https://www.dolarsi.com/api/api.php?type=valoresprincipales"
@@ -384,9 +367,23 @@ def app4():
     costo = costos[regiones.index(region)][cultivos.index(tipo)]
     gasto = gastos[regiones.index(region)][cultivos.index(tipo)]
     
-    st.write(precio)
-    st.write(costo)
-    st.write(gasto)
+    # Imprimir la lista de datos        
+    def lista():
+        def valor1():
+            return cantidad + 1
+        valors = valor1()
+        lista = [region, propio, cantidad, valors]
+        return lista
+    datos = []
+    if "dfp" not in st.session_state:
+        st.session_state.dfp = pd.DataFrame(columns=('Región', 'Tipo de explotación', 'Superficie (has)', 'Valor'))
+    if submit:
+        datos.append(lista())
+        dfo = pd.DataFrame(datos, columns=('Región', 'Tipo de explotación', 'Superficie (has)', 'Valor'))
+        st.session_state.dfp = pd.concat([st.session_state.dfp, dfo])
+    st.table(st.session_state.dfp)
+    css()
+    
     #precio = psoja1*dol*rinde*cantidad
     #costos directos
     #costodirecto = costo*dol*cantidad
