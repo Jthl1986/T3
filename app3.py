@@ -405,7 +405,7 @@ def app4():
     st.table(st.session_state.dfp)
     css()
     
-    mbtotal = st.session_state.dfp['net'].sum()
+    mbtotal = st.session_state.dfp['Margen bruto'].sum()
     right.metric('El margen bruto total es: ', '${:,}'.format(mbtotal))
 
 def app5():
