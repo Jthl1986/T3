@@ -405,8 +405,7 @@ def app4():
     st.table(st.session_state.dfp)
     css()
     
-    mbtotal = st.session_state.dfp['Margen bruto'].sum()
-    right.metric('El margen bruto total es: ', '${:}'.format(mbtotal))
+
 
 def app5():
     st.header("Cuadro resumen")
@@ -424,6 +423,8 @@ def app5():
     if dfp is not None:
         st.subheader("🌽 Planteo productivo")
         st.table(dfp.style.format({"Superficie (has)":"{:.0f}", "Valor":"${:,}"})) 
+        mbtotal = st.session_state.dfp['Margen bruto'].sum()
+        right.metric('El margen bruto total es: ', '{:}'.format(mbtotal))
         
     if dfs is not None:
         right.subheader("🌾 Existencias de granos")
