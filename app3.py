@@ -405,13 +405,8 @@ def app4():
     st.table(st.session_state.dfp)
     css()
     
-    
-    #precio = psoja1*dol*rinde*cantidad
-    #costos directos
-    #costodirecto = costo*dol*cantidad
-    #gasto de comercialización
-    #gastoscom = porgastos*ibsoja1
-    
+    mbtotal = st.session_state.dfp['net'].sum()
+    right.metric('El margen bruto total es: ', '${:,}'.format(mbtotal))
 
 def app5():
     st.header("Cuadro resumen")
@@ -419,10 +414,11 @@ def app5():
     css()
    
     # Obtener los dataframes existentes o None si no existen
+    dfp = getattr(st.session_state, 'dfp', None)
     dfs = getattr(st.session_state, 'dfs', None)
     dfx = getattr(st.session_state, 'dfx', None)
     dfa = getattr(st.session_state, 'dfa', None)
-    dfp = getattr(st.session_state, 'dfp', None)
+    
    
     # Mostrar las tablas si los dataframes existen
     if dfp is not None:
