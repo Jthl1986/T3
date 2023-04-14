@@ -387,16 +387,22 @@ def app4():
         # Formatear valor con el formato "${:,}"
         gc_formatted = "${:,}".format(round(gc))
         
-        lista = [region, propio, tipo, cantidad, valors_formatted, cost_formatted, gc_formatted]
+        def neto():
+            return valors-cost-gc
+        net = neto()
+        # Formatear valor con el formato "${:,}"
+        net_formatted = "${:,}".format(round(net))
+        
+        lista = [region, propio, tipo, cantidad, valors_formatted, cost_formatted, gc_formatted, net_formatted]
         return lista
     datos = []
     if "dfp" not in st.session_state:
-        st.session_state.dfp = pd.DataFrame(columns=('Región', 'Tipo de explotación', 'Cultivo', 'Superficie (has)', 'Ingreso', 'Costos directos', 'Gastos comercialización'))
+        st.session_state.dfp = pd.DataFrame(columns=('Región', 'Tipo de explotación', 'Cultivo', 'Superficie (has)', 'Ingreso', 'Costos directos', 'Gastos comercialización','Margen bruto'))
     if submit:
         datos.append(lista())
-        dfo = pd.DataFrame(datos, columns=('Región', 'Tipo de explotación','Cultivo', 'Superficie (has)', 'Ingreso', 'Costos directos','Gastos comercialización'))
+        dfo = pd.DataFrame(datos, columns=('Región', 'Tipo de explotación','Cultivo', 'Superficie (has)', 'Ingreso', 'Costos directos','Gastos comercialización', 'Margen bruto'))
         st.session_state.dfp = pd.concat([st.session_state.dfp, dfo])
-    st.table(st.session_state.dfp).set_properties(**{'text-align': 'right'})
+    st.table(st.session_state.dfp)
     css()
     
     
