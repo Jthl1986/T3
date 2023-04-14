@@ -422,13 +422,13 @@ def app5():
     # Mostrar las tablas si los dataframes existen
     if dfp is not None:
         st.subheader("🌽 Planteo productivo")
-        ingtotal = st.session_state.dfp['Ingresos brutos'].sum()
+        ingtotal = st.session_state.dfp['Ingreso'].sum()
         costtotal = st.session_state.dfp['Costos directos'].sum()
         gctotal = st.session_state.dfp['Gastos comercialización'].sum()
         mbtotal = st.session_state.dfp['Margen bruto'].sum()
-        st.metric('El margen bruto total es: ', '{:}'.format(ingtotal))
-        st.metric('El margen bruto total es: ', '{:}'.format(costtotal))
-        st.metric('El margen bruto total es: ', '{:}'.format(gctotal))
+        st.metric('Ingresos brutos: ', '{:}'.format(ingtotal))
+        st.metric('Costos directos: ', '{:}'.format(costtotal))
+        st.metric('Gastos comercialización: ', '{:}'.format(gctotal))
         st.metric('El margen bruto total es: ', '{:}'.format(mbtotal))
         st.table(dfp.style.format({"Superficie (has)":"{:.0f}", "Valor":"${:,}"})) 
 
