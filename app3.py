@@ -341,7 +341,45 @@ def app4():
     else:
         print("No se pudo descargar el archivo")
     
-    st.write(sojaprice1)
+    #Matriz de producción
+    regiones = ["N Bs As/S Sta Fe","Oeste Bs As", "SO Bs As", "SE Bs As", "S Cordoba", "S Entre Ríos","Salta", "S del Estero"]
+    cultivos = ["Soja 1ra", "Soja 2da", "Trigo","Maíz","Girasol", "Sorgo", "Cebada Forrajera", "Cebada Cervecera"]
+    
+    # Precios por región y tipo de cultivo
+    precios = [
+        [sojaprice1, soja2price1, trigoprice1, maizprice1, giraprice2, sorgoprice1, cebadaprice2, cebadaprice1],  # N Bs As/S Sta Fe
+        [sojaprice2, soja2price2, trigoprice3, maizprice1, giraprice2, sorgoprice1, cebadaprice2, cebadaprice1],   # Oeste Bs As
+        [sojaprice2, soja2price2, trigoprice3, maizprice2, giraprice1, sorgoprice1, cebadaprice2, cebadaprice1],   # SO Bs As
+        [sojaprice3, soja2price2, trigoprice2, maizprice2, giraprice1, sorgoprice1, cebadaprice2, cebadaprice1], # SE Bs As
+        [sojaprice1, soja2price1, trigoprice1, maizprice1, giraprice3, sorgoprice1, cebadaprice2, cebadaprice1],  # S Cordoba
+        [sojaprice1, soja2price1, trigoprice1, maizprice1, giraprice3, sorgoprice1, cebadaprice2, cebadaprice1],   # S Entre Ríos
+        [sojaprice1, soja2price1, trigoprice1, maizprice1, giraprice2, sorgoprice1, cebadaprice2, cebadaprice1],    # Salta
+        [sojaprice1, soja2price1, trigoprice1, maizprice1, giraprice2, sorgoprice1, cebadaprice2, cebadaprice1]    # S del Estero
+    ]
+    
+    # Costos por región y tipo de cultivo
+    costos = [
+        [sojacost5, soja2cost3, trigocost1, maizcost1, giracost3, sorgocost3, cebadacost2, cebadacost1],    # N Bs As/S Sta Fe
+        [sojacost8, soja2cost4, trigocost7, maizcost5, giracost2, sorgocost1, cebadacost2, cebadacost1],     # Oeste Bs As
+        [sojacost3, soja2cost4, trigocost5, maizcost4, giracost1, sorgocost1, cebadacost2, cebadacost1],     # SO Bs As
+        [sojacost4, soja2cost4, trigocost3, maizcost3, giracost1, sorgocost1, cebadacost2, cebadacost1],    # SE Bs As
+        [sojacost7, soja2cost1, trigocost6, maizcost6, giracost3, sorgocost4, cebadacost2, cebadacost1],    # S Cordoba
+        [sojacost6, soja2cost2, trigocost2, maizcost2, giracost3, sorgocost2, cebadacost2, cebadacost1],     # S Entre Ríos
+        [sojacost2, soja2cost3, trigocost4, maizcost1, giracost3, sorgocost2, cebadacost2, cebadacost1],     # Salta
+        [sojacost1, soja2cost3, trigocost4, maizcost1, giracost3, sorgocost2, cebadacost2, cebadacost1]      # S del Estero
+    ]
+    
+    gastos = [
+        [sojagc5, soja2gc3, trigogc1, maizgc1, giragc3, sorgogc3, cebadagc2, cebadagc1],    # N Bs As/S Sta Fe
+        [sojagc8, soja2gc4, trigogc7, maizgc4, giragc2, sorgogc1, cebadagc2, cebadagc1],     # Oeste Bs As
+        [sojagc3, soja2gc4, trigogc5, maizgc3, giragc1, sorgogc1, cebadagc2, cebadagc1],     # SO Bs As
+        [sojagc4, soja2gc4, trigogc3, maizgc2, giragc1, sorgogc1, cebadagc2, cebadagc1],    # SE Bs As
+        [sojagc7, soja2gc1, trigogc6, maizgc5, giragc3, sorgogc4, cebadagc2, cebadagc1],    # S Cordoba
+        [sojagc6, soja2gc2, trigogc2, maizgc1, giragc3, sorgogc2, cebadagc2, cebadagc1],     # S Entre Ríos
+        [sojagc2, soja2gc3, trigogc4, maizgc1, giragc3, sorgogc2, cebadagc2, cebadagc1],     # Salta
+        [sojagc1, soja2gc3, trigogc4, maizgc1, giragc3, sorgogc2, cebadagc2, cebadagc1]      # S del Estero
+    ]
+    
     #precio = psoja1*dol*rinde*cantidad
     #costos directos
     #costodirecto = costo*dol*cantidad
