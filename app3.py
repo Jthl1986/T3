@@ -378,10 +378,10 @@ def app4():
         return lista
     datos = []
     if "dfp" not in st.session_state:
-        st.session_state.dfp = pd.DataFrame(columns=('Región', 'Tipo de explotación', 'Superficie (has)', 'Valor'))
+        st.session_state.dfp = pd.DataFrame(columns=('Región', 'Tipo de explotación', 'Superficie (has)', 'Ingreso'))
     if submit:
         datos.append(lista())
-        dfo = pd.DataFrame(datos, columns=('Región', 'Tipo de explotación', 'Superficie (has)', 'Valor'))
+        dfo = pd.DataFrame(datos, columns=('Región', 'Tipo de explotación', 'Superficie (has)', 'Ingreso'))
         st.session_state.dfp = pd.concat([st.session_state.dfp, dfo])
     st.table(st.session_state.dfp)
     css()
