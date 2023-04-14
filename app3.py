@@ -372,7 +372,9 @@ def app4():
         def valor1():
             return precio*dol*rinde*cantidad
         valors = valor1()
-        lista = [region, propio, cantidad, valors]
+        # Formatear valor con el formato "${:,}"
+        valors_formatted = "${:,}".format(valors)
+        lista = [region, propio, cantidad, valors_formatted]
         return lista
     datos = []
     if "dfp" not in st.session_state:
