@@ -495,9 +495,9 @@ with st.sidebar:
     st.title('Agro App')
     st.markdown("---")
 my_button = st.sidebar.radio("Modulos",('Planteo productivo', 'Condiciones climáticas', 'Valuación granos', 'Valuación hacienda', 'Servicios agrícolas', 'Cuadro resumen'))
-if my_button == 'Valuación hacienda':
+if my_button == 'Tenencia hacienda':
     app()
-elif my_button == 'Valuación granos':
+elif my_button == 'Tenencia granos':
     app1()
 elif my_button == 'Servicios agrícolas':
     app2()
