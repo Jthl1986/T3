@@ -409,7 +409,7 @@ def app4():
     costtotal = st.session_state.dfp['Costos directos'].sum()
     gctotal = st.session_state.dfp['Gastos comercialización'].sum()
     mbtotal = st.session_state.dfp['Margen bruto'].sum()
-    st.write('Ingresos brutos son: ', '{:}'.format(ingtotal))
+    st.write(ingtotal)
     st.write('Costos directos: ', '{:}'.format(costtotal))
     st.write('Gastos comercialización: ', '{:}'.format(gctotal))
     st.write('El margen bruto total es: ', '{:}'.format(mbtotal))
