@@ -421,7 +421,7 @@ def app5():
         st.write('Costos directos: ', '${:,}'.format(round(costtotal)))
         st.write('Gastos comercialización: ', '${:,}'.format(round(gctotal)))
         st.write('El margen bruto total es: ', '${:,}'.format(round(mbtotal)))
-        st.table(dfp.style.format({"Superficie (has)":"{:.0f}", "Valor":"${:,}"})) 
+        st.table(dfp.style.format({"Superficie (has)":"{:.0f}", "Ingreso":"${:,}", "Costos directos":"${:,}", "Gastos comercialización":"${:,}", "Margen bruto":"${:,}"})) 
 
         
     if dfs is not None:
