@@ -418,9 +418,9 @@ def app5():
         gctotal = st.session_state.dfp['Gastos comercialización'].sum()
         mbtotal = st.session_state.dfp['Margen bruto'].sum()
         st.write('Ingresos brutos son: ', '${:,}'.format(round(ingtotal)))
-        st.write('Costos directos: ', '{:}'.format(costtotal))
-        st.write('Gastos comercialización: ', '{:}'.format(gctotal))
-        st.write('El margen bruto total es: ', '{:}'.format(mbtotal))
+        st.write('Costos directos: ', '${:,}'.format(round(costtotal)))
+        st.write('Gastos comercialización: ', '${:,}'.format(round(gctotal)))
+        st.write('El margen bruto total es: ', '${:,}'.format(round(mbtotal)))
         st.table(dfp.style.format({"Superficie (has)":"{:.0f}", "Valor":"${:,}"})) 
 
         
