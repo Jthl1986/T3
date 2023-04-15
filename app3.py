@@ -372,28 +372,20 @@ def app4():
         def valor1():
             return precio*dol*rinde*cantidad
         valors = valor1()
-        # Formatear valor con el formato "${:,}"
-        valors_formatted = "${:,}".format(round(valors))
         
         def costo1():
             return costo*dol*cantidad
         cost = costo1()
-        # Formatear valor con el formato "${:,}"
-        cost_formatted = "${:,}".format(round(cost))
         
         def gc1():
             return gasto*valors
         gc = gc1()
-        # Formatear valor con el formato "${:,}"
-        gc_formatted = "${:,}".format(round(gc))
         
         def neto():
             return valors-cost-gc
         net = neto()
-        # Formatear valor con el formato "${:,}"
-        net_formatted = "${:,}".format(round(net))
         
-        lista = [region, propio, tipo, cantidad, valors_formatted, cost_formatted, gc_formatted, net_formatted]
+        lista = [region, propio, tipo, cantidad, valors, cost, gc, net]
         return lista
     datos = []
     if "dfp" not in st.session_state:
@@ -405,14 +397,6 @@ def app4():
     st.table(st.session_state.dfp)
     css()
     
-    ingtotal = st.session_state.dfp['Ingreso'].sum()
-    costtotal = st.session_state.dfp['Costos directos'].sum()
-    gctotal = st.session_state.dfp['Gastos comercialización'].sum()
-    mbtotal = st.session_state.dfp['Margen bruto'].sum()
-    st.write(ingtotal)
-    st.write('Costos directos: ', '{:}'.format(costtotal))
-    st.write('Gastos comercialización: ', '{:}'.format(gctotal))
-    st.write('El margen bruto total es: ', '{:}'.format(mbtotal))
 
 def app5():
     st.header("Cuadro resumen")
