@@ -428,8 +428,8 @@ def app5():
         mbtotal = st.session_state.dfp['Margen bruto'].sum()
         st.write('Ingresos brutos: ', '{:}'.format(ingtotal))
         st.write('Costos directos: ', '{:}'.format(costtotal))
-        st.witre('Gastos comercialización: ', '{:}'.format(gctotal))
-        st.witre('El margen bruto total es: ', '{:}'.format(mbtotal))
+        st.write('Gastos comercialización: ', '{:}'.format(gctotal))
+        st.write('El margen bruto total es: ', '{:}'.format(mbtotal))
         st.table(dfp.style.format({"Superficie (has)":"{:.0f}", "Valor":"${:,}"})) 
 
         
