@@ -385,7 +385,7 @@ def app4():
             return valors-cost-gc
         net = neto()
         
-        lista = [region, propio, tipo, cantidad, valors, cost, gc, net]
+        lista = [region, propio, tipo, cantidad, valors, round(cost), gc, net]
         return lista
     datos = []
     if "dfp" not in st.session_state:
@@ -421,7 +421,7 @@ def app5():
         st.write('Costos directos: ', '${:,}'.format(round(costtotal)))
         st.write('Gastos comercialización: ', '${:,}'.format(round(gctotal)))
         st.write('El margen bruto total es: ', '${:,}'.format(round(mbtotal)))
-        st.table(dfp.style.format({"Superficie (has)":"{:.0f}", "Ingreso":"${:,}", "Costos directos":"${:,0f}", "Gastos comercialización":"${:,}", "Margen bruto":"${:,}"})) 
+        st.table(dfp.style.format({"Superficie (has)":"{:.0f}", "Ingreso":"${:,}", "Costos directos":"${:,}", "Gastos comercialización":"${:,}", "Margen bruto":"${:,}"})) 
 
         
     if dfs is not None:
