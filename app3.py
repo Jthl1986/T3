@@ -375,7 +375,7 @@ def app4():
         
         def costo1():
             return costo*dol*cantidad
-        cost = costo1()
+        cost = round(costo1())
         
         def gc1():
             return gasto*valors
@@ -385,7 +385,7 @@ def app4():
             return valors-cost-gc
         net = neto()
         
-        lista = [region, propio, tipo, cantidad, valors, round(cost), gc, net]
+        lista = [region, propio, tipo, cantidad, valors, cost, gc, net]
         return lista
     datos = []
     if "dfp" not in st.session_state:
