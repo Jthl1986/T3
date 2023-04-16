@@ -397,6 +397,9 @@ def app4():
         st.session_state.dfp = pd.concat([st.session_state.dfp, dfo])
     st.table(st.session_state.dfp.style.format({"Superficie (has)":"{:.0f}", "Ingreso":"${:,}", "Costos directos":"${:,}", "Gastos comercialización":"${:,}", "Margen bruto":"${:,}"}))
     css()
+    if submit2:
+        st.session_state.df1 = [arrendamiento,gastos, aparceria]
+        
     
 
 def app5():
