@@ -497,7 +497,7 @@ lottie_book = load_lottieurl('https://assets7.lottiefiles.com/packages/lf20_d7Oj
 with st.sidebar:
     st.title('Agro App')
     st.markdown("---")
-my_button = st.sidebar.radio("Modulos",('Planteo productivo', 'Condiciones climáticas', 'Valuación granos', 'Valuación hacienda', 'Servicios agrícolas', 'Cuadro resumen'))
+my_button = st.sidebar.radio("Modulos",('Planteo productivo', 'Condiciones climáticas', 'Tenencia granos', 'Tenencia hacienda', 'Servicios agrícolas', 'Cuadro resumen'))
 if my_button == 'Tenencia hacienda':
     app()
 elif my_button == 'Tenencia granos':
