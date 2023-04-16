@@ -432,8 +432,8 @@ def app5():
         right.table(dfs.style.format({"Cantidad (tn)":"{:.0f}", "Valuación":"${:,}"}))
        
     if dfx is not None:
-        right.subheader("🚜 Ingresos Servicios agrícolas")
-        right.table(dfx.style.format({"Superficie(ha)":"{:.0f}", "Precio":"${:,}", "Ingreso estimado":"${:,}"}))
+        left.subheader("🚜 Ingresos Servicios agrícolas")
+        left.table(dfx.style.format({"Superficie(ha)":"{:.0f}", "Precio":"${:,}", "Ingreso estimado":"${:,}"}))
    
     if dfa is not None:
         left.subheader("🐮 Existencias de hacienda")
