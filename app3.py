@@ -426,7 +426,7 @@ def app5():
             ]
 
         # Mostrar la tabla con los datos
-        st.table(data)
+        left.table(data)
         st.table(dfp.style.format({"Superficie (has)":"{:.0f}", "Ingreso":"${:,}", "Costos directos":"${:,}", "Gastos comercialización":"${:,}", "Margen bruto":"${:,}"})) 
 
         
