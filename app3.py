@@ -297,10 +297,11 @@ def app4():
         
     right.metric("Dolar oficial", '${:,}'.format(float(dol)))
     right.write("Cuadro gastos:")
-    gastos = right.number_input("Gastos de estructura", step=1)
-    arrendamiento = right.number_input("Gastos de arrendamiento", step=1)
-    aparceria = right.number_input("Porcentaje de aparcería", step=1)
-    
+    form2 = right.form("template_form") 
+    gastos = form2.number_input("Gastos de estructura", step=1)
+    arrendamiento = form2.number_input("Gastos de arrendamiento", step=1)
+    aparceria = form2.number_input("Porcentaje de aparcería", step=1)
+    submit2 = form2.form_submit_button("Ingresar")
     
     #unpacking
     url = 'https://raw.githubusercontent.com/Jthl1986/T3/master/dataframe.xlsx'
