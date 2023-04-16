@@ -371,7 +371,7 @@ def app4():
     def lista():
         def valor1():
             return precio*dol*rinde*cantidad
-        valors = valor1()
+        valors = round(valor1())
         
         def costo1():
             return costo*dol*cantidad
@@ -379,11 +379,11 @@ def app4():
         
         def gc1():
             return gasto*valors
-        gc = gc1()
+        gc = round(gc1())
         
         def neto():
             return valors-cost-gc
-        net = neto()
+        net = round(neto())
         
         lista = [region, propio, tipo, cantidad, valors, cost, gc, net]
         return lista
