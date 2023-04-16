@@ -424,7 +424,7 @@ def app5():
             {'Concepto': 'Gastos comercialización', 'Total': '${:,}'.format(round(gctotal))},
             {'Concepto': 'Margen bruto total', 'Total': '${:,}'.format(round(mbtotal))}
             ]
-        left.table(data)
+        st.table(data)
         st.table(dfp.style.format({"Superficie (has)":"{:.0f}", "Ingreso":"${:,}", "Costos directos":"${:,}", "Gastos comercialización":"${:,}", "Margen bruto":"${:,}"})) 
         
     if dfs is not None:
