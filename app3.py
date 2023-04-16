@@ -297,7 +297,7 @@ def app4():
         
     right.metric("Dolar oficial", '${:,}'.format(float(dol)))
     right.write("Cuadro gastos:")
-    form2 = right.form("template_form") 
+    form2 = right.form("template_form2") 
     gastos = form2.number_input("Gastos de estructura", step=1)
     arrendamiento = form2.number_input("Gastos de arrendamiento", step=1)
     aparceria = form2.number_input("Porcentaje de aparcería", step=1)
