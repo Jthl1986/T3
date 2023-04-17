@@ -434,11 +434,13 @@ def app5():
             {'Concepto': 'Margen bruto total', 'Total': '${:,}'.format(round(mbtotal))},
             {'Concepto': 'Arrendamiento', 'Total': '${:,}'.format(arrend)},
             {'Concepto': 'Gastos estructura', 'Total': '${:,}'.format(gas)},
-            {'Concepto': '***Generación operativa de fondos***', 'Total': '${:,}'.format(result)}
+            {'Concepto': 'Generación operativa de fondos', 'Total': '${:,}'.format(result)}
             ]
-        # Utilizar st.markdown() para aplicar formato en negrita
         for row in data:
-            st.markdown(f"**{row['Concepto']}**: {row['Total']}")
+            if row['Concepto'] == 'Generación operativa de fondos':
+                st.markdown(f"**{row['Concepto']}**: **{row['Total']}**")
+            else:
+                st.write(f"{row['Concepto']}: {row['Total']}")
 
         left.table(data)
         st.table(dfp.style.format({"Superficie (has)":"{:.0f}", "Ingreso":"${:,}", "Costos directos":"${:,}", "Gastos comercialización":"${:,}", "Margen bruto":"${:,}"})) 
