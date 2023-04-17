@@ -416,7 +416,7 @@ def app5():
     
    
     # Mostrar las tablas si los dataframes existen
-    if dfp and df1 is not None:
+    if dfp or df1 is not None:
         st.subheader("🌽 Planteo productivo")
         ingtotal = st.session_state.dfp['Ingreso'].sum()
         costtotal = st.session_state.dfp['Costos directos'].sum()
