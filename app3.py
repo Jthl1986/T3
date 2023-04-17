@@ -442,7 +442,7 @@ def app5():
         right.write("graficos \n \n \n \n")
     if dfp is None:
         st.write("Sin planteo productivo")
-    if df1 is None:
+    if dfp is not None and df1 is None:
         st.write ("Falta cargar gastos de estructura")
         
     if dfs is not None:
