@@ -422,7 +422,7 @@ def app5():
         costtotal = st.session_state.dfp['Costos directos'].sum()
         gctotal = st.session_state.dfp['Gastos comercialización'].sum()
         mbtotal = st.session_state.dfp['Margen bruto'].sum()
-    elif df1 is not None:
+    if df1 is not None:
         left, right = st.columns(2)
         arrend = st.session_state.df1[0]
         gas = st.session_state.df1[1]
@@ -440,6 +440,8 @@ def app5():
         left.table(data)
         st.table(dfp.style.format({"Superficie (has)":"{:.0f}", "Ingreso":"${:,}", "Costos directos":"${:,}", "Gastos comercialización":"${:,}", "Margen bruto":"${:,}"})) 
         right.write("graficos \n \n \n \n")
+    if df1 is None:
+        st.write("Falta cargar gastos de estructura")
     else:
         st.write ("Sin planteo productivo")
         
