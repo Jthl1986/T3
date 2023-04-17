@@ -440,10 +440,10 @@ def app5():
         left.table(data)
         st.table(dfp.style.format({"Superficie (has)":"{:.0f}", "Ingreso":"${:,}", "Costos directos":"${:,}", "Gastos comercialización":"${:,}", "Margen bruto":"${:,}"})) 
         right.write("graficos \n \n \n \n")
+    if dfp is None:
+        st.write("Sin planteo productivo")
     if df1 is None:
-        st.write("Falta cargar gastos de estructura")
-    else:
-        st.write ("Sin planteo productivo")
+        st.write ("Falta cargar gastos de estructura")
         
     if dfs is not None:
         left, right = st.columns(2)
