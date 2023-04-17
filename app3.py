@@ -298,7 +298,7 @@ def app4():
     right.metric("Dolar oficial", '${:,}'.format(float(dol)))
     right.write("Cuadro gastos:")
     form2 = right.form("template_form2") 
-    gastos = form2.number_input("Gastos de estructura", step=1)
+    gast = form2.number_input("Gastos de estructura", step=1)
     arrendamiento = form2.number_input("Gastos de arrendamiento", step=1)
     aparceria = form2.number_input("Porcentaje de aparcería", step=1)
     submit2 = form2.form_submit_button("Ingresar")
@@ -398,7 +398,7 @@ def app4():
     st.table(st.session_state.dfp.style.format({"Superficie (has)":"{:.0f}", "Ingreso":"${:,}", "Costos directos":"${:,}", "Gastos comercialización":"${:,}", "Margen bruto":"${:,}"}))
     css()
     if submit2:
-        st.session_state.df1 = [arrendamiento,gastos, aparceria]
+        st.session_state.df1 = [arrendamiento, gast, aparceria]
         
     
 
@@ -424,8 +424,8 @@ def app5():
         mbtotal = st.session_state.dfp['Margen bruto'].sum()
     if df1 is not None:
         arrend = st.session_state.df1[0]
-        gast = st.session_state.df1[1]
-        #result = int(mbtotal)-int(arrend)-int(gast)
+        gas = st.session_state.df1[1]
+        result = int(mbtotal)-int(arrend)-int(gas)
         # Crear una lista de diccionarios con los datos
         data = [
             {'Concepto': 'Ingresos brutos', 'Total': '${:,}'.format(round(ingtotal))},
@@ -433,11 +433,9 @@ def app5():
             {'Concepto': 'Gastos comercialización', 'Total': '${:,}'.format(round(gctotal))},
             {'Concepto': 'Margen bruto total', 'Total': '${:,}'.format(round(mbtotal))},
             {'Concepto': 'Arrendamiento', 'Total': '${:,}'.format(arrend)},
-            #{'Concepto': 'Gastos estructura', 'Total': '${:,}'.format(gast)},      
+            {'Concepto': 'Gastos estructura', 'Total': '${:,}'.format(gas)},
+            {'Concepto': 'Generación operativa de fondos', 'Total': '${:,}'.format(result)}
             ]
-        st.write(type(arrend))
-        st.write(type(gast))
-        st.write(type(mbtotal))
         st.table(data)
         st.table(dfp.style.format({"Superficie (has)":"{:.0f}", "Ingreso":"${:,}", "Costos directos":"${:,}", "Gastos comercialización":"${:,}", "Margen bruto":"${:,}"})) 
         
