@@ -416,12 +416,13 @@ def app5():
     
    
     # Mostrar las tablas si los dataframes existen
-    if dfp or df1 is not None:
+    if dfp is not None:
         st.subheader("🌽 Planteo productivo")
         ingtotal = st.session_state.dfp['Ingreso'].sum()
         costtotal = st.session_state.dfp['Costos directos'].sum()
         gctotal = st.session_state.dfp['Gastos comercialización'].sum()
         mbtotal = st.session_state.dfp['Margen bruto'].sum()
+    if df1 is not None:
         arrend = st.session_state.df1
         # Crear una lista de diccionarios con los datos
         data = [
