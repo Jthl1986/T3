@@ -412,10 +412,11 @@ def app5():
     dfs = getattr(st.session_state, 'dfs', None)
     dfx = getattr(st.session_state, 'dfx', None)
     dfa = getattr(st.session_state, 'dfa', None)
+    df1 = getattr(st.session_state, 'df1', None)
     
    
     # Mostrar las tablas si los dataframes existen
-    if dfp is not None:
+    if dfp and df1 is not None:
         st.subheader("🌽 Planteo productivo")
         ingtotal = st.session_state.dfp['Ingreso'].sum()
         costtotal = st.session_state.dfp['Costos directos'].sum()
