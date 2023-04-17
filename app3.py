@@ -451,7 +451,7 @@ def app5():
         csss = """
         <style>
             table tr:last-child td {
-                font-weight: bold;
+                font-weight: normal;
             }
         </style>
         """
