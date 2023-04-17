@@ -423,6 +423,7 @@ def app5():
         gctotal = st.session_state.dfp['Gastos comercialización'].sum()
         mbtotal = st.session_state.dfp['Margen bruto'].sum()
     if df1 is not None:
+        left, right = st.columns(2)
         arrend = st.session_state.df1[0]
         gas = st.session_state.df1[1]
         result = int(mbtotal)-int(arrend)-int(gas)
@@ -436,7 +437,7 @@ def app5():
             {'Concepto': 'Gastos estructura', 'Total': '${:,}'.format(gas)},
             {'Concepto': 'Generación operativa de fondos', 'Total': '${:,}'.format(result)}
             ]
-        st.table(data)
+        left.table(data)
         st.table(dfp.style.format({"Superficie (has)":"{:.0f}", "Ingreso":"${:,}", "Costos directos":"${:,}", "Gastos comercialización":"${:,}", "Margen bruto":"${:,}"})) 
         
     if dfs is not None:
