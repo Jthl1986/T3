@@ -415,7 +415,6 @@ def app5():
     df1 = getattr(st.session_state, 'df1', None)
     
    
-    # Mostrar las tablas si los dataframes existen
     if dfp is not None:
         st.subheader("Planteo productivo")
         ingtotal = st.session_state.dfp['Ingreso'].sum()
