@@ -425,7 +425,7 @@ def app5():
     if df1 is not None:
         arrend = st.session_state.df1[0]
         gast = st.session_state.df1[1]
-        result = int(mbtotal)-int(arrend)-int(gast)
+        #result = int(mbtotal)-int(arrend)-int(gast)
         # Crear una lista de diccionarios con los datos
         data = [
             {'Concepto': 'Ingresos brutos', 'Total': '${:,}'.format(round(ingtotal))},
