@@ -436,16 +436,6 @@ def app5():
             {'Concepto': 'Gastos estructura', 'Total': '${:,}'.format(gas)},
             {'Concepto': 'Generación operativa de fondos', 'Total': '${:,}'.format(result)}
             ]
-        # Obtener el índice de la última fila en la lista de datos
-        ultima_fila = len(data) - 1
-        
-        # Utilizar st.markdown() para mostrar la tabla con el formato en negrita para la última fila
-        for i, row in enumerate(data):
-            if i == ultima_fila:
-                left.markdown(f"**{row['Concepto']}**: **{row['Total']}**")
-            else:
-                left.table(f"{row['Concepto']}: {row['Total']}")
-
         left.table(data)
         st.table(dfp.style.format({"Superficie (has)":"{:.0f}", "Ingreso":"${:,}", "Costos directos":"${:,}", "Gastos comercialización":"${:,}", "Margen bruto":"${:,}"})) 
         right.write("graficos \n \n \n \n")
