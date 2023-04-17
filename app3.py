@@ -425,7 +425,7 @@ def app5():
     if df1 is not None:
         arrend = st.session_state.df1[0]
         gast = st.session_state.df1[1]
-        result=mbtotal-arrend-gast
+        result = mbtotal-arrend-gast
         # Crear una lista de diccionarios con los datos
         data = [
             {'Concepto': 'Ingresos brutos', 'Total': '${:,}'.format(round(ingtotal))},
@@ -434,7 +434,7 @@ def app5():
             {'Concepto': 'Margen bruto total', 'Total': '${:,}'.format(round(mbtotal))},
             {'Concepto': 'Arrendamiento', 'Total': '${:,}'.format(round(arrend))},
             {'Concepto': 'Gastos estructura', 'Total': '${:,}'.format(round(gast))},      
-            {{'Concepto': 'Resultado Neto', 'Total': '${:,}'.format(round(result))}}]
+            {'Concepto': 'Resultado Neto', 'Total': '${:,}'.format(round(result))}]
         st.table(data)
         st.table(dfp.style.format({"Superficie (has)":"{:.0f}", "Ingreso":"${:,}", "Costos directos":"${:,}", "Gastos comercialización":"${:,}", "Margen bruto":"${:,}"})) 
         
