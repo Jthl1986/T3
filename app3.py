@@ -432,7 +432,7 @@ def app5():
             {'Concepto': 'Costos directos', 'Total': '${:,}'.format(round(costtotal))},
             {'Concepto': 'Gastos comercialización', 'Total': '${:,}'.format(round(gctotal))},
             {'Concepto': 'Margen bruto total', 'Total': '${:,}'.format(round(mbtotal))},
-            #{'Concepto': 'Arrendamiento', 'Total': '${:,}'.format(arrend)},
+            {'Concepto': 'Arrendamiento', 'Total': '${:,}'.format(arrend)},
             #{'Concepto': 'Gastos estructura', 'Total': '${:,}'.format(gast)},      
             ]
         st.write(type(arrend))
