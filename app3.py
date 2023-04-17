@@ -441,14 +441,17 @@ def app5():
         st.table(dfp.style.format({"Superficie (has)":"{:.0f}", "Ingreso":"${:,}", "Costos directos":"${:,}", "Gastos comercialización":"${:,}", "Margen bruto":"${:,}"})) 
         
     if dfs is not None:
+        left, right = st.columns(2)
         right.subheader("Existencias de granos")
         right.table(dfs.style.format({"Cantidad (tn)":"{:.0f}", "Valuación":"${:,}"}))
        
     if dfx is not None:
+        left, right = st.columns(2)
         left.subheader("Ingresos Servicios agrícolas")
         left.table(dfx.style.format({"Superficie(ha)":"{:.0f}", "Precio":"${:,}", "Ingreso estimado":"${:,}"}))
    
     if dfa is not None:
+        left, right = st.columns(2)
         left.subheader("Existencias de hacienda")
         left.table(dfa.style.format({"Cantidad":"{:.0f}", "Peso":"{:.0f}", "Valuación":"${:,}"}))
         
