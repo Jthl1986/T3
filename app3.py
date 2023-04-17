@@ -427,6 +427,19 @@ def app5():
         gas = st.session_state.df1[1]
         result = int(mbtotal)-int(arrend)-int(gas)
         # Crear una lista de diccionarios con los datos
+        
+                # Define the CSS style
+        css = """
+        <style>
+            table tr:last-child td {
+                font-weight: bold;
+            }
+        </style>
+        """
+        
+        # Display the CSS style
+        st.markdown(css, unsafe_allow_html=True)
+        
         data = [
             {'Concepto': 'Facturación campaña', 'Total': '${:,}'.format(round(ingtotal))},
             {'Concepto': 'Costos directos', 'Total': '${:,}'.format(round(costtotal))},
