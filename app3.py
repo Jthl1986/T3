@@ -279,7 +279,7 @@ def app4():
     left.write("Completar:")
     form = left.form("template_form") 
     tipo = form.selectbox('Tipo de cultivo: ', ["Soja 1ra", "Soja 2da", "Trigo","Maíz","Girasol", "Sorgo", "Cebada Forrajera", "Cebada Cervecera"])
-    propio = form.selectbox('Tipo de explotación: ', ["Propia","Arrendado","Aparcería"])
+    propio = form.selectbox('Campos: ', ["Propios","Arrendados","Aparcería"])
     cantidad = form.number_input("Superficie (has): ", step=1)
     rinde = form.number_input("Rendimiento informado (en tn)")
     submit = form.form_submit_button("Ingresar")
