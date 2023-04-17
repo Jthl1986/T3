@@ -421,7 +421,7 @@ def app5():
         costtotal = st.session_state.dfp['Costos directos'].sum()
         gctotal = st.session_state.dfp['Gastos comercialización'].sum()
         mbtotal = st.session_state.dfp['Margen bruto'].sum()
-        arrend = st.session_state.df1[0]
+        arrend = st.session_state.df1
         # Crear una lista de diccionarios con los datos
         data = [
             {'Concepto': 'Ingresos brutos', 'Total': '${:,}'.format(round(ingtotal))},
