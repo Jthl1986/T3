@@ -390,10 +390,10 @@ def app4():
         return lista
     datos = []
     if "dfp" not in st.session_state:
-        st.session_state.dfp = pd.DataFrame(columns=('Región', 'Tipo de explotación', 'Cultivo', 'Superficie (has)', 'Ingreso', 'Costos directos', 'Gastos comercialización','Margen bruto'))
+        st.session_state.dfp = pd.DataFrame(columns=('Región', 'Campos', 'Cultivo', 'Superficie (has)', 'Ingreso', 'Costos directos', 'Gastos comercialización','Margen bruto'))
     if submit:
         datos.append(lista())
-        dfo = pd.DataFrame(datos, columns=('Región', 'Tipo de explotación','Cultivo', 'Superficie (has)', 'Ingreso', 'Costos directos','Gastos comercialización', 'Margen bruto'))
+        dfo = pd.DataFrame(datos, columns=('Región', 'Campos','Cultivo', 'Superficie (has)', 'Ingreso', 'Costos directos','Gastos comercialización', 'Margen bruto'))
         st.session_state.dfp = pd.concat([st.session_state.dfp, dfo])
     st.table(st.session_state.dfp.style.format({"Superficie (has)":"{:.0f}", "Ingreso":"${:,}", "Costos directos":"${:,}", "Gastos comercialización":"${:,}", "Margen bruto":"${:,}"}))
     css()
