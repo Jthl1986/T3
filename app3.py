@@ -436,8 +436,12 @@ def app5():
             {'Concepto': 'Gastos estructura', 'Total': '${:,}'.format(gas)},
             {'Concepto': 'Generación operativa de fondos', 'Total': '${:,}'.format(result)}
             ]
-        for row in data:
-            if row['Concepto'] == 'Generación operativa de fondos':
+        # Obtener el índice de la última fila en la lista de datos
+        ultima_fila = len(data) - 1
+        
+        # Utilizar st.markdown() para aplicar formato en negrita solo a la última fila de la tabla
+        for i, row in enumerate(data):
+            if i == ultima_fila:
                 st.markdown(f"**{row['Concepto']}**: **{row['Total']}**")
             else:
                 st.write(f"{row['Concepto']}: {row['Total']}")
