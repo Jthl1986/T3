@@ -422,7 +422,7 @@ def app5():
         costtotal = st.session_state.dfp['Costos directos'].sum()
         gctotal = st.session_state.dfp['Gastos comercialización'].sum()
         mbtotal = st.session_state.dfp['Margen bruto'].sum()
-    if df1 is not None:
+    elif df1 is not None:
         left, right = st.columns(2)
         arrend = st.session_state.df1[0]
         gas = st.session_state.df1[1]
