@@ -434,7 +434,7 @@ def app5():
             {'Concepto': 'Margen bruto total', 'Total': '${:,}'.format(round(mbtotal))},
             {'Concepto': 'Arrendamiento', 'Total': '${:,}'.format(arrend)},
             {'Concepto': 'Gastos estructura', 'Total': '${:,}'.format(gas)},
-            {'Concepto': '**Generación operativa de fondos**', 'Total': '${:,}'.format(result)}
+            {'Concepto': '***Generación operativa de fondos***', 'Total': '${:,}'.format(result)}
             ]
         left.table(data)
         st.table(dfp.style.format({"Superficie (has)":"{:.0f}", "Ingreso":"${:,}", "Costos directos":"${:,}", "Gastos comercialización":"${:,}", "Margen bruto":"${:,}"})) 
