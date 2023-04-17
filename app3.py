@@ -436,11 +436,10 @@ def app5():
             {'Concepto': 'Gastos estructura', 'Total': '${:,}'.format(gas)},
             {'Concepto': '***Generación operativa de fondos***', 'Total': '${:,}'.format(result)}
             ]
-        # Utilizar el paquete rich para aplicar formato
-        from rich.console import Console
-        console = Console()
+        # Utilizar st.markdown() para aplicar formato en negrita
         for row in data:
-            console.print(f"[bold]{row['Concepto']}[/bold]\t{row['Total']}")
+            st.markdown(f"**{row['Concepto']}**: {row['Total']}")
+
         left.table(data)
         st.table(dfp.style.format({"Superficie (has)":"{:.0f}", "Ingreso":"${:,}", "Costos directos":"${:,}", "Gastos comercialización":"${:,}", "Margen bruto":"${:,}"})) 
         right.write("graficos \n \n \n \n")
