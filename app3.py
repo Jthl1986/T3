@@ -442,6 +442,7 @@ def app5():
         right.write("graficos \n \n \n \n")
         
     if dfs is not None:
+        left, right = st.columns(2)
         right.subheader("Existencias de granos")
         right.table(dfs.style.format({"Cantidad (tn)":"{:.0f}", "Valuación":"${:,}"}))
        
