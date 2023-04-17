@@ -439,7 +439,7 @@ def app5():
             ]
         left.table(data)
         st.table(dfp.style.format({"Superficie (has)":"{:.0f}", "Ingreso":"${:,}", "Costos directos":"${:,}", "Gastos comercialización":"${:,}", "Margen bruto":"${:,}"})) 
-        right.write("graficos")
+        right.write("graficos \n \n \n \n")
         
     if dfs is not None:
         right.subheader("Existencias de granos")
