@@ -437,9 +437,7 @@ def app5():
             {'Concepto': 'Gastos estructura', 'Total': '${:,}'.format(gas)},
             {'Concepto': 'Generación operativa de fondos', 'Total': '${:,}'.format(result)}
             ]
-        df = pd.DataFrame(data)
-        df = df.style.format({"Total": "${:,}"}).applymap(lambda x: "font-weight: bold", subset=pd.IndexSlice[df['Concepto'].isin(['Margen bruto total', 'Generación operativa de fondos']), 'Total'])
-        left.table(df)
+        left.table(data)
         st.table(dfp.style.format({"Superficie (has)":"{:.0f}", "Ingreso":"${:,}", "Costos directos":"${:,}", "Gastos comercialización":"${:,}", "Margen bruto":"${:,}"})) 
         right.write("graficos \n \n \n \n")
     if dfp is not None and df1 is None:
