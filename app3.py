@@ -444,7 +444,7 @@ def app5():
             if i == ultima_fila:
                 left.markdown(f"**{row['Concepto']}**: **{row['Total']}**")
             else:
-                left.write(f"{row['Concepto']}: {row['Total']}")
+                left.table(f"{row['Concepto']}: {row['Total']}")
 
         left.table(data)
         st.table(dfp.style.format({"Superficie (has)":"{:.0f}", "Ingreso":"${:,}", "Costos directos":"${:,}", "Gastos comercialización":"${:,}", "Margen bruto":"${:,}"})) 
