@@ -429,7 +429,7 @@ def app5():
         # Crear una lista de diccionarios con los datos
         
                 # Define the CSS style
-        css = """
+        csss = """
         <style>
             table tr:last-child td {
                 font-weight: bold;
@@ -438,7 +438,7 @@ def app5():
         """
         
         # Display the CSS style
-        st.markdown(css, unsafe_allow_html=True)
+        st.markdown(csss, unsafe_allow_html=True)
         
         data = [
             {'Concepto': 'Facturación campaña', 'Total': '${:,}'.format(round(ingtotal))},
