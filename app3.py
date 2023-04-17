@@ -436,7 +436,7 @@ def app5():
             }
         </style>
         """
-        
+        st.markdown(csss, unsafe_allow_html=True)
         data = [
             {'Concepto': 'Facturación campaña', 'Total': '${:,}'.format(round(ingtotal))},
             {'Concepto': 'Costos directos', 'Total': '${:,}'.format(round(costtotal))},
@@ -446,7 +446,6 @@ def app5():
             {'Concepto': 'Gastos estructura', 'Total': '${:,}'.format(gas)},
             {'Concepto': 'Generación operativa de fondos', 'Total': '${:,}'.format(result)}
             ]
-        st.write(csss, unsafe_allow_html=True)
         left.table(data)
 
         st.table(dfp.style.format({"Superficie (has)":"{:.0f}", "Ingreso":"${:,}", "Costos directos":"${:,}", "Gastos comercialización":"${:,}", "Margen bruto":"${:,}"})) 
