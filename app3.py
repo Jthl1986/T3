@@ -446,7 +446,10 @@ def app5():
             {'Concepto': 'Gastos estructura', 'Total': '${:,}'.format(gas)},
             {'Concepto': 'Generación operativa de fondos', 'Total': '${:,}'.format(result)}
             ]
-        left.table(data, unsafe_allow_html=True, style=csss)
+        left.table(pd.DataFrame(data).style.hide_index().set_table_styles([{
+            'selector': 'tr:last-child',
+            'props': [('font-weight', 'bold')]
+        }]))
 
         st.table(dfp.style.format({"Superficie (has)":"{:.0f}", "Ingreso":"${:,}", "Costos directos":"${:,}", "Gastos comercialización":"${:,}", "Margen bruto":"${:,}"})) 
         right.write("graficos \n \n \n \n")
