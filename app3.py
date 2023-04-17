@@ -435,11 +435,9 @@ def app5():
             {'Concepto': 'Margen bruto total', 'Total': '${:,}'.format(round(mbtotal))},
             {'Concepto': 'Arrendamiento', 'Total': '${:,}'.format(arrend)},
             {'Concepto': 'Gastos estructura', 'Total': '${:,}'.format(gas)},
-            {'Concepto': 'Generación operativa de fondos', 'Total': '${:,}'.format(result)}
+            {'Concepto': '**Generación operativa de fondos**', 'Total': '${:,}'.format(result)}
             ]
-        table = left.table(data)
-        table.set_properties(**{'font-weight': 'bold'}, subset=['Concepto'], inplace=True) # Filas en negrita
-        table.set_properties(**{'font-weight': 'bold'}, subset=['Margen bruto total', 'Generación operativa de fondos', 'Total'], inplace=True) # Celdas en negrita
+        left.table(data)
         st.table(dfp.style.format({"Superficie (has)":"{:.0f}", "Ingreso":"${:,}", "Costos directos":"${:,}", "Gastos comercialización":"${:,}", "Margen bruto":"${:,}"})) 
         right.write("graficos \n \n \n \n")
     if dfp is not None and df1 is None:
