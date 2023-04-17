@@ -434,7 +434,10 @@ def app5():
             {'Concepto': 'Margen bruto total', 'Total': '${:,}'.format(round(mbtotal))},
             {'Concepto': 'Arrendamiento', 'Total': '${:,}'.format(round(arrend))},
             {'Concepto': 'Gastos estructura', 'Total': '${:,}'.format(round(gast))},      
-            {'Concepto': 'Resultado Neto', 'Total': '${:,}'.format(round(result))}]
+            ]
+        st.write(type(arrend))
+        st.write(type(gast))
+        st.write(type(mbtotal))
         st.table(data)
         st.table(dfp.style.format({"Superficie (has)":"{:.0f}", "Ingreso":"${:,}", "Costos directos":"${:,}", "Gastos comercialización":"${:,}", "Margen bruto":"${:,}"})) 
         
