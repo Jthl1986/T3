@@ -417,7 +417,7 @@ def app5():
    
     # Mostrar las tablas si los dataframes existen
     if dfp is not None:
-        st.subheader("🌽 Planteo productivo")
+        st.subheader("Planteo productivo")
         ingtotal = st.session_state.dfp['Ingreso'].sum()
         costtotal = st.session_state.dfp['Costos directos'].sum()
         gctotal = st.session_state.dfp['Gastos comercialización'].sum()
@@ -439,15 +439,15 @@ def app5():
         st.table(dfp.style.format({"Superficie (has)":"{:.0f}", "Ingreso":"${:,}", "Costos directos":"${:,}", "Gastos comercialización":"${:,}", "Margen bruto":"${:,}"})) 
         
     if dfs is not None:
-        right.subheader("🌾 Existencias de granos")
+        right.subheader("Existencias de granos")
         right.table(dfs.style.format({"Cantidad (tn)":"{:.0f}", "Valuación":"${:,}"}))
        
     if dfx is not None:
-        left.subheader("🚜 Ingresos Servicios agrícolas")
+        left.subheader("Ingresos Servicios agrícolas")
         left.table(dfx.style.format({"Superficie(ha)":"{:.0f}", "Precio":"${:,}", "Ingreso estimado":"${:,}"}))
    
     if dfa is not None:
-        left.subheader("🐮 Existencias de hacienda")
+        left.subheader("Existencias de hacienda")
         left.table(dfa.style.format({"Cantidad":"{:.0f}", "Peso":"{:.0f}", "Valuación":"${:,}"}))
         
         
