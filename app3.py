@@ -428,15 +428,19 @@ def app5():
         result = int(mbtotal)-int(arrend)-int(gas)
         # Crear una lista de diccionarios con los datos
         
-        # Define el CSS style para la primera tabla (fuente bold)
-        csss_bold = """
+        # Define el estilo CSS
+        csss = """
         <style>
             table tr:last-child td {
                 font-weight: bold;
             }
+            table {
+                font-weight: normal;
+            }
         </style>
         """
-        st.markdown(csss_bold, unsafe_allow_html=True)
+
+        st.markdown(csss, unsafe_allow_html=True)
         data = [
             {'Concepto': 'Facturación campaña', 'Total': '${:,}'.format(round(ingtotal))},
             {'Concepto': 'Costos directos', 'Total': '${:,}'.format(round(costtotal))},
@@ -447,17 +451,6 @@ def app5():
             {'Concepto': 'Generación operativa de fondos', 'Total': '${:,}'.format(result)}
             ]
         left.table(data)
-        
-        # Define el CSS style para la segunda tabla (fuente normal)
-        csss_normal = """
-        <style>
-            table tr:last-child td {
-                font-weight: normal;
-            }
-        </style>
-        """
-
-        st.markdown(csss_normal, unsafe_allow_html=True)
 
         st.table(dfp.style.format({"Superficie (has)":"{:.0f}", "Ingreso":"${:,}", "Costos directos":"${:,}", "Gastos comercialización":"${:,}", "Margen bruto":"${:,}"})) 
         right.write("graficos \n \n \n \n")
