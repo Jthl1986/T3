@@ -428,7 +428,7 @@ def app5():
         result = int(mbtotal)-int(arrend)-int(gas)
         # Crear una lista de diccionarios con los datos
         data = [
-            {'Concepto': 'Ingresos brutos', 'Total': '${:,}'.format(round(ingtotal))},
+            {'Concepto': 'Facturación campaña', 'Total': '${:,}'.format(round(ingtotal))},
             {'Concepto': 'Costos directos', 'Total': '${:,}'.format(round(costtotal))},
             {'Concepto': 'Gastos comercialización', 'Total': '${:,}'.format(round(gctotal))},
             {'Concepto': 'Margen bruto total', 'Total': '${:,}'.format(round(mbtotal))},
