@@ -424,7 +424,7 @@ def app5():
         mbtotal = st.session_state.dfp['Margen bruto'].sum()
     if df1 is not None:
         arrend = st.session_state.df1[0]
-        gast = st.session_state.df1[1][0]
+        gast = st.session_state.df1[1]
         #result = int(mbtotal)-int(arrend)-int(gast)
         # Crear una lista de diccionarios con los datos
         data = [
