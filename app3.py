@@ -448,7 +448,7 @@ def app5():
             ]
         left.table(data)
         
-        csss = """
+        cssss = """
         <style>
             table tr:last-child td {
                 font-weight: normal;
@@ -456,7 +456,7 @@ def app5():
         </style>
         """
         
-        st.markdown(csss, unsafe_allow_html=True)
+        st.markdown(cssss, unsafe_allow_html=True)
 
         st.table(dfp.style.format({"Superficie (has)":"{:.0f}", "Ingreso":"${:,}", "Costos directos":"${:,}", "Gastos comercialización":"${:,}", "Margen bruto":"${:,}"})) 
         right.write("graficos \n \n \n \n")
