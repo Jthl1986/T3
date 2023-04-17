@@ -443,8 +443,8 @@ def app5():
         
     if dfs is not None:
         left, right = st.columns(2)
-        right.subheader("Existencias de granos")
-        right.table(dfs.style.format({"Cantidad (tn)":"{:.0f}", "Valuación":"${:,}"}))
+        left.subheader("Existencias de granos")
+        left.table(dfs.style.format({"Cantidad (tn)":"{:.0f}", "Valuación":"${:,}"}))
        
     if dfx is not None:
         left, right = st.columns(2)
