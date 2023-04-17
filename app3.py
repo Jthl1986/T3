@@ -447,6 +447,16 @@ def app5():
             {'Concepto': 'Generación operativa de fondos', 'Total': '${:,}'.format(result)}
             ]
         left.table(data)
+        
+        csss = """
+        <style>
+            table tr:last-child td {
+                font-weight: bold;
+            }
+        </style>
+        """
+        
+        st.write(csss, unsafe_allow_html=True)
 
         st.table(dfp.style.format({"Superficie (has)":"{:.0f}", "Ingreso":"${:,}", "Costos directos":"${:,}", "Gastos comercialización":"${:,}", "Margen bruto":"${:,}"})) 
         right.write("graficos \n \n \n \n")
