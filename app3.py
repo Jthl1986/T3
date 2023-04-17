@@ -439,12 +439,14 @@ def app5():
         # Obtener el índice de la última fila en la lista de datos
         ultima_fila = len(data) - 1
         
-        # Utilizar st.markdown() para aplicar formato en negrita solo a la última fila de la tabla
+        # Utilizar st.table() para mostrar la tabla
+        table_data = []
         for i, row in enumerate(data):
             if i == ultima_fila:
-                st.markdown(f"**{row['Concepto']}**: **{row['Total']}**")
+                table_data.append([f"**{row['Concepto']}**", f"**{row['Total']}**"])
             else:
-                st.write(f"{row['Concepto']}: {row['Total']}")
+                table_data.append([row['Concepto'], row['Total']])
+        left.table(table_data)
 
         left.table(data)
         st.table(dfp.style.format({"Superficie (has)":"{:.0f}", "Ingreso":"${:,}", "Costos directos":"${:,}", "Gastos comercialización":"${:,}", "Margen bruto":"${:,}"})) 
