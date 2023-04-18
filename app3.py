@@ -434,9 +434,6 @@ def app5():
             .custom-table 1:last-child td {
                 font-weight: bold;
             }
-            {
-    margin-bottom: 30px;
-}
         </style>
         """
 
