@@ -430,26 +430,12 @@ def app5():
         
         # Define el estilo CSS
         csss = """
-<style>
-    .custom-table {
-        font-size: 14px;
-        border-collapse: collapse;
-        width: 100%;
-    }
-    .custom-table th,
-    .custom-table td {
-        border: 1px solid black;
-        padding: 8px;
-        text-align: left;
-    }
-    .custom-table th:first-child {
-        display: none;
-    }
-    .custom-table tbody tr:not(:first-child):last-child td {
-        font-weight: bold;
-    }
-</style>
-"""
+        <style>
+            .custom-table tbody tr:not(:first-child):last-child td {
+                font-weight: bold;
+            }
+        </style>
+        """
 
         data = [
             {'Concepto': 'Facturación campaña', 'Total': '${:,}'.format(round(ingtotal))},
