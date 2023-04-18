@@ -435,7 +435,7 @@ def app5():
                 font-weight: bold;
             }
             table {
-                font-weight: normal;
+                font-weight: 400;
             }
         </style>
         """
