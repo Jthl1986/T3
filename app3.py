@@ -446,6 +446,9 @@ def app5():
                 background-color: lightgray;
                 font-weight: bold;
             }
+            .custom-table tbody tr:last-child td {
+                font-weight: bold;
+            }
         </style>
         """
 
