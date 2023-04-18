@@ -434,13 +434,9 @@ def app5():
             table tr:last-child td {
                 font-weight: bold;
             }
-            table {
-                font-weight: 400;
-            }
         </style>
         """
 
-    with st.container():
         st.markdown(csss, unsafe_allow_html=True)
         data = [
             {'Concepto': 'Facturación campaña', 'Total': '${:,}'.format(round(ingtotal))},
