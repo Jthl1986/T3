@@ -446,7 +446,7 @@ def app5():
                 background-color: lightgray;
                 font-weight: bold;
             }
-            .custom-table tbody tr:last-child td {
+            .custom-table tbody tr:not(:first-child):last-child td {
                 font-weight: bold;
             }
         </style>
