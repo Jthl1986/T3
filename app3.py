@@ -431,13 +431,24 @@ def app5():
         # Define el estilo CSS
         csss = """
         <style>
-            table tr:last-child td {
+            .custom-table {
+                font-size: 14px;
+                border-collapse: collapse;
+                width: 100%;
+            }
+            .custom-table th,
+            .custom-table td {
+                border: 1px solid black;
+                padding: 8px;
+                text-align: left;
+            }
+            .custom-table th {
+                background-color: lightgray;
                 font-weight: bold;
             }
         </style>
         """
 
-        st.markdown(csss, unsafe_allow_html=True)
         data = [
             {'Concepto': 'Facturación campaña', 'Total': '${:,}'.format(round(ingtotal))},
             {'Concepto': 'Costos directos', 'Total': '${:,}'.format(round(costtotal))},
@@ -447,7 +458,9 @@ def app5():
             {'Concepto': 'Gastos estructura', 'Total': '${:,}'.format(gas)},
             {'Concepto': 'Generación operativa de fondos', 'Total': '${:,}'.format(result)}
             ]
-        left.table(data)
+        # Apply CSS styles to the table
+        left.markdown(csss, unsafe_allow_html=True)
+        left.markdown('<table class="custom-table">{}</table>'.format(pd.DataFrame(data).to_html(index=False, classes="custom-table")), unsafe_allow_html=True)
 
     st.table(dfp.style.format({"Superficie (has)":"{:.0f}", "Ingreso":"${:,}", "Costos directos":"${:,}", "Gastos comercialización":"${:,}", "Margen bruto":"${:,}"})) 
     right.write("graficos \n \n \n \n")
