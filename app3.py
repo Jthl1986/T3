@@ -402,10 +402,10 @@ def app4():
         
     
 
-
 def app5():
     st.header("Cuadro resumen")
     left, right = st.columns(2)
+    css()
    
     # Obtener los dataframes existentes o None si no existen
     dfp = getattr(st.session_state, 'dfp', None)
@@ -414,20 +414,21 @@ def app5():
     dfa = getattr(st.session_state, 'dfa', None)
     df1 = getattr(st.session_state, 'df1', None)
     
+   
     if dfp is not None:
         st.subheader("Planteo productivo")
         ingtotal = st.session_state.dfp['Ingreso'].sum()
         costtotal = st.session_state.dfp['Costos directos'].sum()
         gctotal = st.session_state.dfp['Gastos comercialización'].sum()
         mbtotal = st.session_state.dfp['Margen bruto'].sum()
-    
     if df1 is not None:
         left, right = st.columns(2)
         arrend = st.session_state.df1[0]
         gas = st.session_state.df1[1]
         result = int(mbtotal)-int(arrend)-int(gas)
+        # Crear una lista de diccionarios con los datos
         
-        # Define the CSS styles
+        # Define el estilo CSS
         csss = """
         <style>
             table tr:last-child td {
@@ -436,6 +437,7 @@ def app5():
         </style>
         """
 
+        st.markdown(csss, unsafe_allow_html=True)
         data = [
             {'Concepto': 'Facturación campaña', 'Total': '${:,}'.format(round(ingtotal))},
             {'Concepto': 'Costos directos', 'Total': '${:,}'.format(round(costtotal))},
@@ -444,11 +446,8 @@ def app5():
             {'Concepto': 'Arrendamiento', 'Total': '${:,}'.format(arrend)},
             {'Concepto': 'Gastos estructura', 'Total': '${:,}'.format(gas)},
             {'Concepto': 'Generación operativa de fondos', 'Total': '${:,}'.format(result)}
-        ]
-        
-        # Apply CSS styles to the table
-        left.markdown(csss, unsafe_allow_html=True)
-        left.table(pd.DataFrame(data).style.format({"Total":"${:,}"})) 
+            ]
+        left.table(data)
 
     st.table(dfp.style.format({"Superficie (has)":"{:.0f}", "Ingreso":"${:,}", "Costos directos":"${:,}", "Gastos comercialización":"${:,}", "Margen bruto":"${:,}"})) 
     right.write("graficos \n \n \n \n")
