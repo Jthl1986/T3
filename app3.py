@@ -440,8 +440,8 @@ def app5():
         </style>
         """
 
-        st.markdown(csss, unsafe_allow_html=True)
     with st.container():
+        st.markdown(csss, unsafe_allow_html=True)
         data = [
             {'Concepto': 'Facturación campaña', 'Total': '${:,}'.format(round(ingtotal))},
             {'Concepto': 'Costos directos', 'Total': '${:,}'.format(round(costtotal))},
