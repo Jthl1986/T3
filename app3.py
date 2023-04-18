@@ -431,9 +431,12 @@ def app5():
         # Define el estilo CSS
         csss = """
         <style>
-            .custom-table tbody tr:last-child td {
+            .custom-table 1:last-child td {
                 font-weight: bold;
             }
+            {
+    margin-bottom: 30px;
+}
         </style>
         """
 
