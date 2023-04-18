@@ -431,7 +431,7 @@ def app5():
         # Define el estilo CSS
         csss = """
         <style>
-            .custom-table tbody tr:not(:first-child):last-child td {
+            .custom-table tbody tr:last-child td {
                 font-weight: bold;
             }
         </style>
@@ -448,7 +448,7 @@ def app5():
             ]
         # Apply CSS styles to the table
         left.markdown(csss, unsafe_allow_html=True)
-        left.markdown('<table class="custom-table">{}</table>'.format(pd.DataFrame(data[1:]).to_html(index=False, classes="custom-table")), unsafe_allow_html=True)
+        left.markdown('<table class="custom-table">{}</table>'.format(pd.DataFrame(data).to_html(index=False, classes="custom-table")), unsafe_allow_html=True)
 
     st.table(dfp.style.format({"Superficie (has)":"{:.0f}", "Ingreso":"${:,}", "Costos directos":"${:,}", "Gastos comercialización":"${:,}", "Margen bruto":"${:,}"})) 
     right.write("graficos \n \n \n \n")
