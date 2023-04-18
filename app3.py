@@ -71,7 +71,7 @@ def app():
     ternera=tabla[7:11]
     vaquillona=tabla[11:14]
     vaca=tabla[19:20]
-    fecha=(tabla[25:26].values)[0][0]
+    fecha=(tabla[21:22].values)[0][0]
     ternero160=int(ternero.promedio[0][2:5])
     ternero180=int(ternero.promedio[1][2:5])
     ternero200=int(ternero.promedio[2][2:5])
