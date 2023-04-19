@@ -395,7 +395,7 @@ def app4():
         datos.append(lista())
         dfo = pd.DataFrame(datos, columns=('Región', 'Campos','Cultivo', 'Superficie (has)', 'Ingreso', 'Costos directos','Gastos comercialización', 'Margen bruto'))
         st.session_state.dfp = pd.concat([st.session_state.dfp, dfo])
-    st.dataframe(st.session_state.dfp.style.format({"Superficie (has)":"{:.0f}", "Ingreso":"${:,}", "Costos directos":"${:,}", "Gastos comercialización":"${:,}", "Margen bruto":"${:,}"}), index=False)
+    st.dataframe(st.session_state.dfp.style.format({"Superficie (has)":"{:.0f}", "Ingreso":"${:,}", "Costos directos":"${:,}", "Gastos comercialización":"${:,}", "Margen bruto":"${:,}"}))
     css()
     if submit2:
         st.session_state.df1 = [arrendamiento, gast, aparceria]
