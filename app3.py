@@ -396,16 +396,7 @@ def app4():
         dfo = pd.DataFrame(datos, columns=('Región', 'Campos','Cultivo', 'Superficie (has)', 'Ingreso', 'Costos directos','Gastos comercialización', 'Margen bruto'))
         st.session_state.dfp = pd.concat([st.session_state.dfp, dfo])
     st.dataframe(st.session_state.dfp.style.format({"Superficie (has)":"{:.0f}", "Ingreso":"${:,}", "Costos directos":"${:,}", "Gastos comercialización":"${:,}", "Margen bruto":"${:,}"}))
-    
-    df_styled = st.session_state.dfp.style.format({"Superficie (has)":"{:.0f}", "Ingreso":"${:,}", "Costos directos":"${:,}", "Gastos comercialización":"${:,}", "Margen bruto":"${:,}"})
-
-    # Crear una copia del DataFrame estilizado sin la columna de índice
-    df_styled_no_index = df_styled.copy()
-    df_styled_no_index = df_styled_no_index.set_table_attributes('border="1" class="dataframe"').set_table_styles([{'selector': '.row_heading, .blank', 'props': [('display', 'none')]}])
-    
-    # Mostrar el DataFrame estilizado sin la columna de índice
-    st.write(df_styled_no_index)
-    
+    css()
     if submit2:
         st.session_state.df1 = [arrendamiento, gast, aparceria]
         
