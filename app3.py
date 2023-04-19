@@ -398,11 +398,11 @@ def app4():
     st.dataframe(st.session_state.dfp.style.format({"Superficie (has)":"{:.0f}", "Ingreso":"${:,}", "Costos directos":"${:,}", "Gastos comercialización":"${:,}", "Margen bruto":"${:,}"}))
     
     df_styled = st.session_state.dfp.style.format({"Superficie (has)":"{:.0f}", "Ingreso":"${:,}", "Costos directos":"${:,}", "Gastos comercialización":"${:,}", "Margen bruto":"${:,}"})
-
-    # Ocultar la columna de índice del DataFrame
-    df_styled.hide_index()
     
-    # Mostrar el DataFrame en Streamlit sin la columna de índice
+    # Ocultar la columna de índice en el DataFrame estilizado
+    df_styled = df_styled.hide_index()
+    
+    # Mostrar el DataFrame estilizado en Streamlit sin la columna de índice
     st.write(df_styled)
     
     if submit2:
