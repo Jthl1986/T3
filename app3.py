@@ -422,7 +422,7 @@ def app5():
         gctotal = st.session_state.dfp['Gastos comercialización'].sum()
         mbtotal = st.session_state.dfp['Margen bruto'].sum()
     if df1 is not None:
-        left, right = st.columns(2)
+        left, middle, right = st.columns(3)
         arrend = st.session_state.df1[0]
         gas = st.session_state.df1[1]
         result = int(mbtotal)-int(arrend)-int(gas)
@@ -456,7 +456,7 @@ def app5():
         chart = st.session_state.dfp.groupby('Cultivo')['Superficie (has)'].sum()
         
         # Crear gráfico de barras con los datos obtenidos
-        right.bar_chart(chart)
+        middle.bar_chart(chart)
         
     if dfp is not None and df1 is None:
         st.write ("Sin planteo productivo o falta cargar gastos de estructura")
