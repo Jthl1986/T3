@@ -395,7 +395,7 @@ def app4():
         datos.append(lista())
         dfo = pd.DataFrame(datos, columns=('Región', 'Campos','Cultivo', 'Superficie (has)', 'Rinde', 'Ingreso', 'Costos directos','Gastos comercialización', 'Margen bruto'))
         st.session_state.dfp = pd.concat([st.session_state.dfp, dfo])
-    st.dataframe(st.session_state.dfp.style.format({"Superficie (has)":"{:.0f}", "Ingreso":"${:,}", "Costos directos":"${:,}", "Gastos comercialización":"${:,}", "Margen bruto":"${:,}"}))
+    st.dataframe(st.session_state.dfp.style.format({"Superficie (has)":"{:.0f}", "Rinde":"{:,}", "Ingreso":"${:,}", "Costos directos":"${:,}", "Gastos comercialización":"${:,}", "Margen bruto":"${:,}"}))
     css()
     if submit2:
         st.session_state.df1 = [arrendamiento, gast, aparceria]
@@ -450,7 +450,7 @@ def app5():
         left.markdown('<table class="custom-table">{}</table>'.format(pd.DataFrame(data).to_html(index=False, classes="custom-table", header=False)), unsafe_allow_html=True)
         st.write('\n\n')
         st.write('\n\n')
-        st.dataframe(dfp.style.format({"Superficie (has)":"{:.0f}", "Ingreso":"${:,}", "Costos directos":"${:,}", "Gastos comercialización":"${:,}", "Margen bruto":"${:,}"})) 
+        st.dataframe(dfp.style.format({"Superficie (has)":"{:.0f}", "Rinde":"{:,}", "Ingreso":"${:,}", "Costos directos":"${:,}", "Gastos comercialización":"${:,}", "Margen bruto":"${:,}"})) 
         
         # Agrupar datos por tipo de cultivo y sumar las hectáreas correspondientes
         chart = st.session_state.dfp.groupby('Cultivo')['Superficie (has)'].sum()
