@@ -11,6 +11,7 @@ import streamlit.components.v1 as components
 import json
 import openpyxl
 
+
 st.set_page_config(page_title="AgroAppCredicoop",page_icon="🌱",layout="wide") 
 
 @st.experimental_memo
@@ -456,8 +457,7 @@ def app5():
         chart = st.session_state.dfp.groupby('Cultivo')['Superficie (has)'].sum()
         
         # Crear gráfico de barras con los datos obtenidos
-        colors = {"Trigo": "blue", "Maíz": "green", "Soja": "red"}
-        middle.bar_chart(chart, color=colors)
+        middle.bar_chart(chart)
         
     if dfp is not None and df1 is None:
         st.write ("Sin planteo productivo o falta cargar gastos de estructura")
