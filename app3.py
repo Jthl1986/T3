@@ -453,7 +453,7 @@ def app5():
         st.dataframe(dfp.style.format({"Superficie (has)":"{:.0f}", "Ingreso":"${:,}", "Costos directos":"${:,}", "Gastos comercialización":"${:,}", "Margen bruto":"${:,}"})) 
         
         # Agrupar datos por tipo de cultivo y sumar las hectáreas correspondientes
-        chart = st.session_state.dfp.groupby('Tipo de cultivo')['Superficie (has)'].sum()
+        chart = st.session_state.dfp.groupby('Cultivo')['Superficie (has)'].sum()
         
         # Crear gráfico de barras con los datos obtenidos
         right.bar_chart(chart)
