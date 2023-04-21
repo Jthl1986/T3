@@ -386,14 +386,14 @@ def app4():
             return valors-cost-gc
         net = round(neto())
         
-        lista = [region, propio, tipo, cantidad, valors, cost, gc, net]
+        lista = [region, propio, tipo, cantidad, rinde, valors, cost, gc, net]
         return lista
     datos = []
     if "dfp" not in st.session_state:
-        st.session_state.dfp = pd.DataFrame(columns=('Región', 'Campos', 'Cultivo', 'Superficie (has)', 'Ingreso', 'Costos directos', 'Gastos comercialización','Margen bruto'))
+        st.session_state.dfp = pd.DataFrame(columns=('Región', 'Campos', 'Cultivo', 'Superficie (has)', 'Rinde', 'Ingreso', 'Costos directos', 'Gastos comercialización','Margen bruto'))
     if submit:
         datos.append(lista())
-        dfo = pd.DataFrame(datos, columns=('Región', 'Campos','Cultivo', 'Superficie (has)', 'Ingreso', 'Costos directos','Gastos comercialización', 'Margen bruto'))
+        dfo = pd.DataFrame(datos, columns=('Región', 'Campos','Cultivo', 'Superficie (has)', 'Rinde', 'Ingreso', 'Costos directos','Gastos comercialización', 'Margen bruto'))
         st.session_state.dfp = pd.concat([st.session_state.dfp, dfo])
     st.dataframe(st.session_state.dfp.style.format({"Superficie (has)":"{:.0f}", "Ingreso":"${:,}", "Costos directos":"${:,}", "Gastos comercialización":"${:,}", "Margen bruto":"${:,}"}))
     css()
