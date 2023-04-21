@@ -452,7 +452,12 @@ def app5():
         st.write('\n\n')
         st.dataframe(dfp.style.format({"Superficie (has)":"{:.0f}", "Ingreso":"${:,}", "Costos directos":"${:,}", "Gastos comercialización":"${:,}", "Margen bruto":"${:,}"})) 
         
-        right.write("graficos \n \n \n \n")
+        # Agrupar datos por tipo de cultivo y sumar las hectáreas correspondientes
+        chart = st.session_state.dfp.groupby('Tipo de cultivo')['Superficie (has)'].sum()
+        
+        # Crear gráfico de barras con los datos obtenidos
+        right.bar_chart(chart)
+        
     if dfp is not None and df1 is None:
         st.write ("Sin planteo productivo o falta cargar gastos de estructura")
         
