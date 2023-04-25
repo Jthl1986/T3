@@ -211,6 +211,9 @@ def app1():
     css()
     valuacion_total = st.session_state.dfs['Valuación'].sum()
     right.metric('La valuación total de granos es: ', '${:,}'.format(valuacion_total))
+    del_button = right.button("Borrar última fila")
+    if del_button and len(st.session_state.dfs) > 0:
+        st.session_state.dfs = st.session_state.dfs.iloc[:-1]
     right.write("Tabla para copiar:")
     right.table(st.session_state.dfs.style.format({"Cantidad (tn)":"{:.0f}", "Valuación":"${:,}"}))
 
@@ -254,7 +257,7 @@ def app2():
     
     right.metric('Los ingresos totales por servicios agrícolas son: ', "${:,}".format(st.session_state["ingresos_totales"]))    
 
-    delete_last_row = right.button("Eliminar última fila")
+    delete_last_row = right.button("Borrar última fila")
     if delete_last_row:
         if not st.session_state.dfx.empty:
             st.session_state["ingresos_totales"] -= st.session_state.dfx["Ingreso estimado"].iloc[-1]
