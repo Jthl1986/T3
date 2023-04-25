@@ -253,9 +253,9 @@ def app2():
     right.table(st.session_state.dfx.style.format({"Superficie(ha)":"{:.0f}", "Precio":"${:,}", "Ingreso estimado":"${:,}"}))
         
     def borrar_ultimo():
-        if not st.session_state.dfx.empty:
+        if len(st.session_state.dfx) > 0:
+            st.session_state.dfx = st.session_state.dfx[:-1]
             st.session_state["ingresos_totales"] -= st.session_state.dfx.iloc[-1]["Ingreso estimado"]
-            st.session_state.dfx.drop(st.session_state.dfx.tail(1).index, inplace=True)
         else:
             st.warning("No hay elementos en la lista para eliminar")
 
