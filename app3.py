@@ -259,7 +259,7 @@ def app2():
     # Agregar botón para borrar última fila
     if st.session_state.dfx.shape[0] > 0:
         col1, col2 = st.columns([3, 1])
-        if col2.button("Borrar último ingreso"):
+        if col1.button("Borrar último ingreso"):
             st.session_state.dfx = st.session_state.dfx.iloc[:-1, :]
             st.experimental_rerun()
 
