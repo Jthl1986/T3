@@ -251,7 +251,7 @@ def app2():
             st.warning("ALERTA! El precio por ha de siembra cargado es fuera de los promedios de mercado. Ver precios de referencia abajo")
         else:
             pass
-        actualizar_metrica(st.session_state["ingresos_totales"])
+    
     css()
     actualizar_metrica(st.session_state["ingresos_totales"])
     right.write("Tabla para copiar:")
