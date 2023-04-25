@@ -147,7 +147,7 @@ def app():
     delete_last_row = right.button("Eliminar última fila")
     if delete_last_row:
         if not st.session_state.dfa.empty:
-            st.session_state["ingresos_totales"] -= st.session_state.dfa["Ingreso estimado"].iloc[-1]
+            st.session_state['Valuación'] -= st.session_state.dfa["Valuación"].iloc[-1]
             st.session_state.dfa = st.session_state.dfa.iloc[:-1]
     
     right.write("Tabla para copiar:")
