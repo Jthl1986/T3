@@ -247,13 +247,15 @@ def app2():
         else:
             pass
     css()
-    right.metric('Los ingresos totales por servicios agrícolas son: ', "${:,}".format(st.session_state["ingresos_totales"]))    
-    right.write("Tabla para copiar:")
-    right.table(st.session_state.dfx.style.format({"Superficie(ha)":"{:.0f}", "Precio":"${:,}", "Ingreso estimado":"${:,}"}))
-    if right.button("Eliminar último ingreso"):
+    
+    if st.button("Eliminar último ingreso"):
         last_row = st.session_state.dfx.tail(1)
         st.session_state.dfx = st.session_state.dfx.drop(st.session_state.dfx.index[-1])
         st.session_state["ingresos_totales"] -= last_row["Ingreso estimado"].values[0]
+    
+    right.metric('Los ingresos totales por servicios agrícolas son: ', "${:,}".format(st.session_state["ingresos_totales"]))    
+    right.write("Tabla para copiar:")
+    right.table(st.session_state.dfx.style.format({"Superficie(ha)":"{:.0f}", "Precio":"${:,}", "Ingreso estimado":"${:,}"}))
         
     
     def mostrar_precios_referencia(tipo_servicio, imagen):
