@@ -226,6 +226,11 @@ def app2():
     valormins = valors*0.50 #valor minimo siembra
     valormaxs = valors*1.50 #valor maximo siembra
     
+    def eliminar_ultimo_ingreso():
+        if len(st.session_state.dfx) > 0:
+            st.session_state["ingresos_totales"] -= st.session_state.dfx.iloc[-1]["Ingreso estimado"]
+            st.session_state.dfx.drop(st.session_state.dfx.tail(1).index, inplace=True)
+    
     def lista():
         def valor():
             return cantidad*precio
@@ -251,7 +256,10 @@ def app2():
     right.metric('Los ingresos totales por servicios agrícolas son: ', "${:,}".format(st.session_state["ingresos_totales"]))    
     right.write("Tabla para copiar:")
     right.table(st.session_state.dfx.style.format({"Superficie(ha)":"{:.0f}", "Precio":"${:,}", "Ingreso estimado":"${:,}"}))
-        
+    
+    if st.button("Eliminar último ingreso"):
+        eliminar_ultimo_ingreso()
+
     
     def mostrar_precios_referencia(tipo_servicio, imagen):
         expander = st.expander(f"Ver precios de referencia - {tipo_servicio}")
