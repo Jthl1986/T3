@@ -220,6 +220,7 @@ def app2():
     cantidad = form.number_input("Ingrese superficie (has): ", step=1)
     precio = form.number_input("Ingrese precio por ha", step=1)
     submit = form.form_submit_button("Ingresar")
+    delete_last_row = right.button("Eliminar última fila")
     valorminc = 9000 #valor minimo cosecha
     valormaxc = 16000 #valor maximo cosecha
     valors = 7500 #valor referencia siembra
@@ -246,22 +247,17 @@ def app2():
             st.warning("ALERTA! El precio por ha de siembra cargado es fuera de los promedios de mercado. Ver precios de referencia abajo")
         else:
             pass
+        
+    if delete_last_row:
+        if not st.session_state.dfx.empty:
+            st.session_state["ingresos_totales"] -= st.session_state.dfx["Ingreso estimado"].iloc[-1]
+            st.session_state.dfx = st.session_state.dfx.iloc[:-1]
     css()
     
     right.metric('Los ingresos totales por servicios agrícolas son: ', "${:,}".format(st.session_state["ingresos_totales"]))    
     right.write("Tabla para copiar:")
     right.table(st.session_state.dfx.style.format({"Superficie(ha)":"{:.0f}", "Precio":"${:,}", "Ingreso estimado":"${:,}"}))
     
-    # Código previo omitido
-    if "dfx" not in st.session_state:
-        st.session_state.dfx = pd.DataFrame(columns=("Categoría", "Superficie(ha)", "Precio", "Ingreso estimado"))
-
-    # Agregar botón para borrar última fila
-    if st.session_state.dfx.shape[0] > 0:
-        col1, col2 = st.columns([3, 1])
-        if col1.button("Borrar último ingreso"):
-            st.session_state.dfx = st.session_state.dfx.iloc[:-1, :]
-            st.experimental_rerun()
 
     
     def mostrar_precios_referencia(tipo_servicio, imagen):
