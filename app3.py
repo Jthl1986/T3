@@ -247,6 +247,8 @@ def app2():
         else:
             pass
     
+    right.metric('Los ingresos totales por servicios agrícolas son: ', "${:,}".format(st.session_state["ingresos_totales"]))    
+
     delete_last_row = right.button("Eliminar última fila")
     if delete_last_row:
         if not st.session_state.dfx.empty:
@@ -254,11 +256,9 @@ def app2():
             st.session_state.dfx = st.session_state.dfx.iloc[:-1]
     css()
     
-    right.metric('Los ingresos totales por servicios agrícolas son: ', "${:,}".format(st.session_state["ingresos_totales"]))    
     right.write("Tabla para copiar:")
     right.table(st.session_state.dfx.style.format({"Superficie(ha)":"{:.0f}", "Precio":"${:,}", "Ingreso estimado":"${:,}"}))
     
-
     
     def mostrar_precios_referencia(tipo_servicio, imagen):
         expander = st.expander(f"Ver precios de referencia - {tipo_servicio}")
