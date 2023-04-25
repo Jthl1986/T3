@@ -248,6 +248,13 @@ def app2():
             pass
     css()
     right.metric('Los ingresos totales por servicios agrícolas son: ', "${:,}".format(st.session_state["ingresos_totales"]))
+    
+    # Botón para borrar la última fila de la tabla
+    if len(st.session_state.dfx) > 0:
+        if st.button("Borrar última fila"):
+            st.session_state.dfx = st.session_state.dfx.iloc[:-1]
+            st.session_state["ingresos_totales"] -= st.session_state.dfx.iloc[-1]["Ingreso estimado"]
+    
     right.write("Tabla para copiar:")
     right.table(st.session_state.dfx.style.format({"Superficie(ha)":"{:.0f}", "Precio":"${:,}", "Ingreso estimado":"${:,}"}))
     
