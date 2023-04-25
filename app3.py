@@ -72,7 +72,7 @@ def app():
     ternera=tabla[7:11]
     vaquillona=tabla[11:14]
     vaca=tabla[19:20]
-    fecha=(tabla[21:22].values)[0][0]
+    fecha=(tabla[25:26].values)[0][0]
     ternero160=int(ternero.promedio[0][2:5])
     ternero180=int(ternero.promedio[1][2:5])
     ternero200=int(ternero.promedio[2][2:5])
@@ -247,11 +247,6 @@ def app2():
         else:
             pass
     css()
-    
-    if st.button("Eliminar último ingreso"):
-        last_row = st.session_state.dfx.tail(1)
-        st.session_state.dfx = st.session_state.dfx.drop(st.session_state.dfx.index[-1])
-        st.session_state["ingresos_totales"] -= last_row["Ingreso estimado"].values[0]
     
     right.metric('Los ingresos totales por servicios agrícolas son: ', "${:,}".format(st.session_state["ingresos_totales"]))    
     right.write("Tabla para copiar:")
