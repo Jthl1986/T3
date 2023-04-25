@@ -220,7 +220,6 @@ def app2():
     cantidad = form.number_input("Ingrese superficie (has): ", step=1)
     precio = form.number_input("Ingrese precio por ha", step=1)
     submit = form.form_submit_button("Ingresar")
-    delete_last_row = right.button("Eliminar última fila")
     valorminc = 9000 #valor minimo cosecha
     valormaxc = 16000 #valor maximo cosecha
     valors = 7500 #valor referencia siembra
@@ -247,7 +246,8 @@ def app2():
             st.warning("ALERTA! El precio por ha de siembra cargado es fuera de los promedios de mercado. Ver precios de referencia abajo")
         else:
             pass
-        
+    
+    delete_last_row = right.button("Eliminar última fila")
     if delete_last_row:
         if not st.session_state.dfx.empty:
             st.session_state["ingresos_totales"] -= st.session_state.dfx["Ingreso estimado"].iloc[-1]
