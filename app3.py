@@ -417,7 +417,7 @@ def app4():
     delete_last_row = left.button("Borrar última fila")
     if delete_last_row:
         if not st.session_state.dfp.empty:
-            st.session_state["ingresos_totales"] -= st.session_state.dfp["Ingreso estimado"].iloc[-1]
+            st.session_state["ingresos_totales"] -= st.session_state.dfp["Ingreso"].iloc[-1]
             st.session_state.dfp = st.session_state.dfp.iloc[:-1]
     if submit2:
         st.session_state.df1 = [arrendamiento, gast, aparceria]
