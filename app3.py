@@ -226,11 +226,6 @@ def app2():
     valormins = valors*0.50 #valor minimo siembra
     valormaxs = valors*1.50 #valor maximo siembra
     
-    def eliminar_ultimo_ingreso():
-        if len(st.session_state.dfx) > 0:
-            st.session_state["ingresos_totales"] -= st.session_state.dfx.iloc[-1]["Ingreso estimado"]
-            st.session_state.dfx.drop(st.session_state.dfx.tail(1).index, inplace=True)
-    
     def lista():
         def valor():
             return cantidad*precio
@@ -257,8 +252,16 @@ def app2():
     right.write("Tabla para copiar:")
     right.table(st.session_state.dfx.style.format({"Superficie(ha)":"{:.0f}", "Precio":"${:,}", "Ingreso estimado":"${:,}"}))
     
-    if st.button("Eliminar último ingreso"):
-        eliminar_ultimo_ingreso()
+    # Código previo omitido
+    if "dfx" not in st.session_state:
+        st.session_state.dfx = pd.DataFrame(columns=("Categoría", "Superficie(ha)", "Precio", "Ingreso estimado"))
+
+    # Agregar botón para borrar última fila
+    if st.session_state.dfx.shape[0] > 0:
+        col1, col2 = st.columns([3, 1])
+        if col2.button("Borrar último ingreso"):
+            st.session_state.dfx = st.session_state.dfx.iloc[:-1, :]
+            st.experimental_rerun()
 
     
     def mostrar_precios_referencia(tipo_servicio, imagen):
