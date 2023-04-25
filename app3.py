@@ -144,7 +144,7 @@ def app():
     valuacion_total = st.session_state.dfa['Valuación'].sum()
     right.metric('La valuación total de hacienda es: ', '${:,}'.format(valuacion_total))
 
-    del_button = right.form_submit_button("Borrar última fila")
+    del_button = right.button("Borrar última fila")
     if del_button and len(st.session_state.dfa) > 0:
         st.session_state.dfa = st.session_state.dfa.iloc[:-1]
 
