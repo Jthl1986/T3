@@ -249,7 +249,7 @@ def app2():
     css()
     right.metric('Los ingresos totales por servicios agrícolas son: ', "${:,}".format(st.session_state["ingresos_totales"]))
     
-    if st.button("Eliminar último ingreso"):
+    if right.button("Eliminar último ingreso"):
         last_row = st.session_state.dfx.tail(1)
         st.session_state.dfx = st.session_state.dfx.drop(st.session_state.dfx.index[-1])
         st.session_state["ingresos_totales"] -= last_row["Ingreso estimado"].values[0]
