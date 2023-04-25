@@ -143,6 +143,13 @@ def app():
     css()
     valuacion_total = st.session_state.dfa['Valuación'].sum()
     right.metric('La valuación total de hacienda es: ', '${:,}'.format(valuacion_total))
+    
+    delete_last_row = right.button("Eliminar última fila")
+    if delete_last_row:
+        if not st.session_state.dfa.empty:
+            st.session_state["ingresos_totales"] -= st.session_state.dfa["Ingreso estimado"].iloc[-1]
+            st.session_state.dfa = st.session_state.dfa.iloc[:-1]
+    
     right.write("Tabla para copiar:")
     right.table(st.session_state.dfa.style.format({"Cantidad":"{:.0f}", "Peso":"{:.0f}", "Valuación":"${:,}"}))
     right.write(f'Los precios considerados son de la {fecha}')
