@@ -208,10 +208,6 @@ def app1():
     right.metric('La valuación total de granos es: ', '${:,}'.format(valuacion_total))
     right.write("Tabla para copiar:")
     right.table(st.session_state.dfs.style.format({"Cantidad (tn)":"{:.0f}", "Valuación":"${:,}"}))
-    if right.button("Eliminar último ingreso"):
-        last_row = st.session_state.dfs.tail(1)
-        st.session_state.dfs = st.session_state.dfs.drop(st.session_state.dfs.index[-1])
-        st.session_state["ingresos_totales"] -= last_row["Ingreso estimado"].values[0]
 
 def app2():
     if "ingresos_totales" not in st.session_state:
@@ -259,16 +255,6 @@ def app2():
         st.session_state.dfx = st.session_state.dfx.drop(st.session_state.dfx.index[-1])
         st.session_state["ingresos_totales"] -= last_row["Ingreso estimado"].values[0]
         
-    def borrar_ultimo():
-        if len(st.session_state.dfx) > 0:
-            st.session_state.dfx = st.session_state.dfx[:-1]
-            st.session_state["ingresos_totales"] -= st.session_state.dfx.iloc[-1]["Ingreso estimado"]
-        else:
-                st.warning("No hay elementos en la lista para eliminar")
-
-    # Agregar el botón "Borrar último" en la interfaz
-    if st.button("Borrar último"):
-        borrar_ultimo()
     
     def mostrar_precios_referencia(tipo_servicio, imagen):
         expander = st.expander(f"Ver precios de referencia - {tipo_servicio}")
