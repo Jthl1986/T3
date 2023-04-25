@@ -213,10 +213,6 @@ def app1():
 def app2():
     if "ingresos_totales" not in st.session_state:
         st.session_state["ingresos_totales"] = 0
-        
-    def actualizar_metrica(valor):
-        right.metric('Los ingresos totales por servicios agrícolas son: ', "${:,}".format(valor))
-        
     st.title("🚜 Servicios agrícolas")
     left, right = st.columns(2)
     left.write("Completar:")
@@ -251,9 +247,8 @@ def app2():
             st.warning("ALERTA! El precio por ha de siembra cargado es fuera de los promedios de mercado. Ver precios de referencia abajo")
         else:
             pass
-    
     css()
-    actualizar_metrica(st.session_state["ingresos_totales"])
+    right.metric('Los ingresos totales por servicios agrícolas son: ', "${:,}".format(st.session_state["ingresos_totales"]))    
     right.write("Tabla para copiar:")
     right.table(st.session_state.dfx.style.format({"Superficie(ha)":"{:.0f}", "Precio":"${:,}", "Ingreso estimado":"${:,}"}))
         
