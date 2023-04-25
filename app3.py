@@ -414,6 +414,11 @@ def app4():
         st.session_state.dfp = pd.concat([st.session_state.dfp, dfo])
     st.dataframe(st.session_state.dfp.style.format({"Superficie (has)":"{:.0f}", "Rinde":"{:,}", "Ingreso":"${:,}", "Costos directos":"${:,}", "Gastos comercialización":"${:,}", "Margen bruto":"${:,}"}))
     css()
+    delete_last_row = left.button("Borrar última fila")
+    if delete_last_row:
+        if not st.session_state.dfp.empty:
+            st.session_state["ingresos_totales"] -= st.session_state.dfp["Ingreso estimado"].iloc[-1]
+            st.session_state.dfp = st.session_state.dfp.iloc[:-1]
     if submit2:
         st.session_state.df1 = [arrendamiento, gast, aparceria]
         
